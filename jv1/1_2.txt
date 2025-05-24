@@ -1,0 +1,94 @@
+1.1:
+  - Вконтакте.
+  Пользователь --> Очень большое количество полей: имя, фамилия, дата рождения, страна, выбранные характеристики (пол, мировозрение) и т.д.
+  Пост --> массив с ссылками на приложенные файлы, текстовое поле, счетчик лайков.
+  Группа --> Настройки видимости, черный список(массив с id), участники(массив с id), пользователи с определенными ролями(массив с id), посты(массив с ссылками), тип группы.
+  - Телеграм.
+  Пользователь --> Номер телефона, ник, имя, раздел о себе, премиум(булево значение), контакты (массив).
+  Сообщение --> Текстовое содержание, приложенные файлы (массив с ссылками), реакции (массив), время отправки, тип сообщения(временное или постоянное), массив получателей( личное сообщение - два человека, группа - n-ое количество).
+
+1.2.
+  Wormix
+    class Worm {
+      String name;
+      double speed;
+      double protection;
+      double jump;
+      double health;
+    }
+
+    class Weapon {
+      String name;
+      double damage;
+      double range;
+      double spread;
+    }
+
+    // картинка c предметом (острок, земля, облако)
+    class Item { 
+      int left; // позиция от левого края
+      int top; // позиция от верхнего края
+      String img; // ссылка на картинку
+    }
+
+    class Map {
+      int width;
+      int height;
+      Item[] items;
+    }
+______________________________________________________________
+
+    class Worm {
+      String name;
+      double speed;
+      double protection;
+      double jump;
+      int health;
+    }
+
+    class Weapon {
+      String name;
+      double damage;
+      double range;
+      double spread;
+    }
+
+    public class ClassNameHere {
+      public static void main(String[] args) {
+        Worm jora = new Worm();
+
+        jora.name = "Georguy";
+        jora.speed = 10;
+        jora.protection = 5;
+        jora.jump = 2;
+        jora.health = 100;
+
+        Weapon gun = new Weapon();
+  
+        gun.name = "Gun 3000 ultra";
+        gun.damage = 10.0;
+        gun.range = 7.5;
+        gun.spread = 0.3;
+  
+        System.out.println(jora.name);
+        System.out.println(jora.jump);
+        
+        System.out.println(gun.name);
+        System.out.println(gun.range);
+      }
+    }
+
+1.3. 
+    Worm jora = new Worm();
+
+    jora.name = "Georguy";
+    jora.speed = 10;
+    jora.protection = 5;
+    jora.jump = 2;
+    jora.health = 100;
+
+    Worm jora2 = jora;
+
+    jora2.health = 75;
+
+    System.out.println(jora2.health == jora.health);
