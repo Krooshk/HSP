@@ -11,18 +11,18 @@
           this.health = h;
         }
 
-        getDamage(double damage) {
+        public void getDamage(double damage) {
           this.health -= damage;
           if (this.health < 0) {
             this.health = 0;
           }
         }
 
-        takePills(double pills) {
+        public void takePills(double pills) {
           this.health += pills;
         }
 
-        setWeapon(Weapon wp) {
+        public void setWeapon(Weapon wp) {
             this.currentWeapon = wp;
         }
     }
@@ -38,8 +38,8 @@
         this.protection = p;
         this.jump = j;
       }
-      
-      setSpeed(double s){
+
+      public void setSpeed(double s){
         this.speed = s;
       }
 
@@ -58,7 +58,7 @@
         this.spread = s;
       }
 
-      changeSpread(double val) {
+      public void changeSpread(double val) {
         this.spread += val;
       }
     }
@@ -73,7 +73,7 @@
         this.top = t;
       }
 
-      changePosition(int l, int t) {
+      public void changePosition(int l, int t) {
         this.left = l;
         this.top = t;
       }
