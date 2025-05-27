@@ -1,6 +1,8 @@
 // Рефлексия 1.3
 // Явно не прописывал видимость методов.
 
+// 5.1. - 5.3. :
+
     class Character {
         private String name;
         private double health;
