@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/jv1/1_12/1_12.iml" filepath="$PROJECT_DIR$/jv1/1_12/1_12.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/HSP.iml" filepath="$PROJECT_DIR$/.idea/HSP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jv1/jv1.iml" filepath="$PROJECT_DIR$/jv1/jv1.iml" />
+    </modules>
+  </component>
+</project>
