@@ -11,10 +11,10 @@ public class MyCodeTest {
     public void testRandom() {
         Random rand = new Random();
 
-        int size = 25;
+        int size = 1000;
         int[] arr = new int[size];
         for (int i = 0; i < size; i ++) {
-            arr[i] = rand.nextInt(15);
+            arr[i] = rand.nextInt(size);
         }
 
         int[] copyArr = MyCode.copy(arr);
@@ -24,18 +24,23 @@ public class MyCodeTest {
 
     @Test
     public void testZero() {
+        int[] arr = new int[] {0};
+        int[] secondArr = new int[] {0};
+        assertTrue(MyCode.equal(MyCode.sort(arr), secondArr));
+    }
+
+    @Test
+    public void testEmpty() {
         int[] arr = new int[] {};
-        int[] copyArr = MyCode.copy(arr);
-        Arrays.sort(copyArr);
-        assertTrue(MyCode.equal(MyCode.sort(arr), copyArr));
+        int[] secondArr = new int[] {};
+        assertTrue(MyCode.equal(MyCode.sort(arr), secondArr));
     }
 
     @Test
     public void testExtremum() {
         int[] arr = new int[] { 2147483647 , -2147483648, 3, 5, 7, 9 };
-        int[] copyArr = MyCode.copy(arr);
-        Arrays.sort(copyArr);
-        assertTrue(MyCode.equal(MyCode.sort(arr), copyArr));
+        int[] secondArr = new int[] { -2147483648, 3, 5, 7, 9, 2147483647  };
+        assertTrue(MyCode.equal(MyCode.sort(arr), secondArr));
     }
 
     @Test
