@@ -1,9 +1,9 @@
 package Pets;
 
 public class Cat {
-    String name;
-    double weight;
-    int freq;
+    public String name;
+    public double weight;
+    public int freq;
 
     public Cat(String name, double weight, int freq){
         this.name = name;
