@@ -14,7 +14,10 @@ class Zip {
         Zip.addFilesFromCurrentZip(zipOutputStream, pathZip); // Добавляем в текущий поток временного файла ZIP файлы из исходного архива
         Zip.addFiles(zipOutputStream, pathFiles); // Добавлем в текущий поток временного файла ZIP желаемые файлы
 
-        fileZip.renameTo(newFileZip); // Перезаписываем исходный архив, присваивая имя временному архиву
+        if (!fileZip.renameTo(newFileZip)){
+            throw new Exception('Cannot rename file');
+        } // Перезаписываем исходный архив, присваивая имя временному архиву
+
         zipOutputStream.close(); // Закрываем поток архива
     }
 

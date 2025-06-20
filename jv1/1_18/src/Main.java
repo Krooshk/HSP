@@ -1,8 +1,11 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
+import java.util.logging.Logger;
 
 public class Main {
+    private Random random = new Random();
+    Logger logger = Logger.getLogger(getClass().getName());
     // Задание 1
     public static void operationWithMaps(){
         HashMap<Integer, String> map = new HashMap<>();
@@ -14,8 +17,9 @@ public class Main {
             map.put(array[i], String.valueOf(array2[i]));
         }
 
-        for (Integer key : map.keySet()) {
-            System.out.println(map.get(key));
+        for (HashMapEntry<Integer, String> entry : map.entrySet()) {
+            String value = entry.getValue();
+            logger.info(value);
         }
 
         map.clear();
@@ -29,8 +33,7 @@ public class Main {
 
         for (int i = 0; i < array.length; i++) {
             for (int j = i; j < array.length - 1; j++) {
-                Random rand = new Random();
-                boolean willSwap = rand.nextInt(2) == 0;
+                boolean willSwap = this.random.nextInt(2) == 0;
 
                 if (willSwap) {
                     int tmp = array[i];
@@ -57,9 +60,9 @@ public class Main {
             }
         }
 
-        for (Integer key : map.keySet()) {
-            if (map.get(key) >= N) {
-                result.add(key);
+        for (HashMapEntry<Integer, String> entry : map.entrySet()) {
+            if (entry.getValue() >= N) {
+                result.add(entry.getKey());
             }
         }
 
@@ -72,19 +75,17 @@ public class Main {
         // Вызов для задания 1
         operationWithMaps();
 
-        ArrayList<Integer> list = new ArrayList<Integer>();
+        ArrayList<Integer> list = new ArrayList<>();
         for (int i = 0; i < 100; i++){
             Random rand = new Random();
             int num = rand.nextInt(10) + 1;
             list.add(num);
         }
 
-        System.out.println("_________________");
-
         // Получение списка из задания 2
         ArrayList<Integer> res = getNumsMoreThen(list, 12);
         for (Integer val : res) {
-            System.out.println(val);
+            logger.info(val);
         }
     }
 }
