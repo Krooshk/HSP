@@ -112,9 +112,9 @@
 
     class Mine extends Weapon{
       private boolean detonated;
-      
+
       Mine() {
-        super("Mine", 40.0, 0.0, 0.0); // range равен 0 так как мину можно кинуть только перед собой
+        super("Mine", 40.0, 0.0, 0.0); // range равен 0, так как мину можно кинуть только перед собой
         this.detonated = false;
         this.canDamageSeveralUnits = true;
       }
