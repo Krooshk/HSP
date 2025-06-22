@@ -2,98 +2,6 @@
 // Явно не прописывал видимость методов.
 
 // 5.1. - 5.3. :
-
-    class Character {
-        private String name;
-        private double health;
-        private Weapon currentWeapon;
-
-        Character(String n, double h){
-          this.name = n;
-          this.health = h;
-        }
-
-        public void getDamage(double damage) {
-          this.health -= damage;
-          if (this.health < 0) {
-            this.health = 0;
-          }
-        }
-
-        public void takePills(double pills) {
-          this.health += pills;
-        }
-
-        public void setWeapon(Weapon wp) {
-            this.currentWeapon = wp;
-        }
-    }
-
-    class Worm extends Character{
-      private double speed;
-      private double protection;
-      private double jump;
-
-      Worm(String n, double h, double s, double p, double j){
-        super(n, h);
-        this.setSpeed(s);
-        this.protection = p;
-        this.jump = j;
-      }
-
-      public void setSpeed(double s){
-        this.speed = s;
-      }
-
-    }
-
-    class Weapon {
-      private String name;
-      private double damage;
-      private double range;
-      private double spread;
-
-      Weapon(String n, double d, double r, double s,){
-        this.name = n;
-        this.damage = d;
-        this.range = r;
-        this.spread = s;
-      }
-
-      public void changeSpread(double val) {
-        this.spread += val;
-      }
-    }
-
-    class Item { 
-      private int left;
-      private int top; 
-      private String img; 
-
-      Item(int l, int t){
-        this.left = l;
-        this.top = t;
-      }
-
-      public void changePosition(int l, int t) {
-        this.left = l;
-        this.top = t;
-      }
-    }
-
-    class Map {
-      private int width;
-      private int height;
-      private Item[] items;
-
-      Map(int w, int h) {
-        this.width = w;
-        this.height = h;
-      }
-    }
-
-// Исправление
-
     class Weapon {
       private String name;
       private double damage;
@@ -152,6 +60,8 @@
       private int jump; // кол-во пикселей
       private int protection;
       private int speed; // км / ч
+      private boolean isDead;
+      private boolean isLand; // персонаж приземлился на землю
 
       Unit(String n, double h, int j, int s, int p){
         this.name = n;
@@ -159,22 +69,39 @@
         this.jump = j;
         this.speed = s;
         this.protection = p;
+        this.isDead = false;
+        this.isLand = true;
       }
 
       public void getDamage(double damage) {
         this.health -= damage;
         if (this.health < 0) {
           this.health = 0;
+          this.isDead = true;
         }
-      }  
+      }
+
+      public void jump() {
+        if (this.isLand) {
+          setIsLand(false);
+          //  calculateJump(this) вызов внешней функции, которая рассчитывает траекторию прыжка, после приземления изменяется флаг isLand с помощью публичного метода setIsLand
+        }
+      }
+
+      public void setIsLand(boolean value) {
+        this.isLand = value;
+      }
+
       public void takePills(double pills) {
         this.health += pills;
-      }  
+      }
+
       public void setWeapon(Weapon wp) {
           this.currentWeapon = wp;
       }
     }
 
+    // Червяк является самым базовым персонажем, поэтому можно создать экземпляр от класса Unit и не использовать отдельный класс для этого
     class Worm extends Unit {
       Worm(){
         super("Worm", 100.0, 10, 1, 0)
@@ -185,14 +112,36 @@
       Dog(){
         super("Dog", 100.0, 20, 30, 40)
       }
+
+      public void getDamage(double damage) { // От каждой атаки получает только часть урона
+        this.health -= damage * 0.8;
+        if (this.health < 0) {
+          this.health = 0;
+          this.isDead = true;
+        }
+      }
     }
 
     class Rabbit extends Unit { 
+      private int limitJumps; 
+      private int currentJumpsLeft;
+
       Rabbit(){
         super("Rabbit", 100.0, 15, 40, 20)
+        this.limitJumps = 2;
       }
 
-      doubleJump(){
-        // Двойной прыжок на карте
+      public void jump() {
+        if (this.isLand) {
+          this.currentJumpsLeft = this.limitJumps;
+        }
+
+        if (this.currentJumpsLeft > 0) {
+          if (this.currentJumpsLeft == this.limitJumps) {
+            setIsLand(false);
+          }
+          this.currentJumpsLeft--;
+          //  calculateJump(this) вызов внешней функции, которая рассчитывает траекторию прыжка, после приземления изменяется флаг isLand с помощью публичного метода setIsLand
+        } 
       }
     }
