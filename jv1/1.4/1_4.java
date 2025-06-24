@@ -66,6 +66,7 @@
       Unit(String n, double h, int j, int s, int p){
         this.name = n;
         this.health = h;
+        assert this.health >= 0;
         this.jump = j;
         this.speed = s;
         this.protection = p;
@@ -74,8 +75,7 @@
       }
 
       public void getDamage(double damage) {
-        this.health -= damage;
-        if (this.health < 0) {
+        if (damage >= this.health) {
           this.health = 0;
           this.isDead = true;
         }

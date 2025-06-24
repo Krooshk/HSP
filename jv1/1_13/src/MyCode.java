@@ -1,4 +1,7 @@
+import java.util.Random;
+
 public class MyCode {
+    static Random rand = new Random();
     public static int[] sort(int[] array) {
         int[] arr = MyCode.copy(array);
         int n = arr.length;
@@ -33,11 +36,18 @@ public class MyCode {
     }
 
     public static int[] copy(int[] array) {
+        if (array.length == 0) {
+            return new int[0];
+        }
+
         int [] copyArr = new int[array.length];
 
         for (int i = 0; i < array.length; i++){
             copyArr[i] = array[i];
         }
+        
+        int index = rand.nextInt(array.length);
+        assert array[index] == copyArr[index];
 
         return copyArr;
     }
