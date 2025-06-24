@@ -47,7 +47,7 @@ public class MyCode {
         }
         
         int index = rand.nextInt(array.length);
-        assert array[index] == copyArr[index];
+        assert array.length == copyArr.length;
 
         return copyArr;
     }

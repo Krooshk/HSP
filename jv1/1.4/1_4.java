@@ -60,7 +60,6 @@
       private int jump; // кол-во пикселей
       private int protection;
       private int speed; // км / ч
-      private boolean isDead;
       private boolean isLand; // персонаж приземлился на землю
 
       Unit(String n, double h, int j, int s, int p){
@@ -70,14 +69,12 @@
         this.jump = j;
         this.speed = s;
         this.protection = p;
-        this.isDead = false;
         this.isLand = true;
       }
 
       public void getDamage(double damage) {
         if (damage >= this.health) {
           this.health = 0;
-          this.isDead = true;
         }
       }
 
@@ -117,7 +114,6 @@
         this.health -= damage * 0.8;
         if (this.health < 0) {
           this.health = 0;
-          this.isDead = true;
         }
       }
     }
