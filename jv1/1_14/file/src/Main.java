@@ -89,7 +89,7 @@ class SumOfTwoFiles {
 
             br.close();
         } catch (Exception e) {
-            res[1] = 2; // Неизвестная ошибка
+            res[1] = 2; // Ошибка при закрытии потока
         }
         return res;
     }
@@ -127,7 +127,7 @@ class NewCats {
                 } catch (IOException e) { }
             }
         }
-        }
+    }
 }
 
 // Задание 3.4
