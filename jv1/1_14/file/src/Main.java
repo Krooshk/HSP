@@ -7,8 +7,9 @@ import Pets.Cat;
 class NewFiles {
     static String path = "/home/kirill/Desktop/bbr/HSP/jv1/1_14/file/";
 
-    public static void create() {
+    public static boolean create() {
         Random rand = new Random();
+        boolean successExecution = true;
 
         for (int i = 1; i <= 10; i++) {
             BufferedWriter bw = null;
@@ -21,19 +22,12 @@ class NewFiles {
                     bw.write(String.valueOf(num));
                     bw.newLine();
                 }
+                bw.close();
             } catch (Exception e) {
-                System.out.println(e.getMessage());
-            } finally {
-                if (bw != null) {
-                    try {
-                        bw.close();
-                    } catch (IOException e) {
-                        System.out.println(e.getMessage());
-                    }
-                }
+                successExecution = false;
             }
-
         }
+        return successExecution;
     }
 }
 
@@ -41,11 +35,14 @@ class NewFiles {
 class SumOfTwoFiles {
     static String path = "/home/kirill/Desktop/bbr/HSP/jv1/1_14/file/";
 
-    public static int sum(int a, int b) throws Exception {
+    public static int[] sum(int a, int b) {
+        int[] res = new int[2];
+        res[1] = 0;
+        
         boolean aIsNotValid = a < 1 || a > 10;
         boolean bIsNotValid = b < 1 || b > 10;
         if (aIsNotValid || bIsNotValid) {
-            throw new Exception("Заданные числа файлов не валидны");
+            res[1] = 1; // Заданные числа файлов не валидны
         }
 
         File file1 = new File(path + a + ".txt");
@@ -53,40 +50,48 @@ class SumOfTwoFiles {
         try {
             BufferedReader br1 = new BufferedReader(new FileReader(file1));
             BufferedReader br2 = new BufferedReader(new FileReader(file2));
-            return SumOfTwoFiles.sumOneFile(br1) + SumOfTwoFiles.sumOneFile(br2);
+            int[] firstSum = SumOfTwoFiles.sumOneFile(br1);
+            int[] secondSum = SumOfTwoFiles.sumOneFile(br2);
+            if (firstSum[1] == 0) {
+                res[0] += firstSum[0];
+            } else {
+                res[1] = 2; // Первый файл вернулся с ошибкой
+            }
+
+            if (secondSum[1] == 0) {
+                res[0] += secondSum[0];
+            } else {
+                res[1] = 3; // Второй файл вернулся с ошибкой
+            }
         } catch (Exception e) {
-            throw new Exception(e);
+            res[1] = 4; // Ошибка при чтении файла
         }
+
+        return res;
     }
 
-    public static int sumOneFile(BufferedReader br) {
+    public static int[] sumOneFile(BufferedReader br) {
         int count = 0;
-        int sumThreeNum = 0;
+        int[] res = new int[2];
+        res[1] = 0;
 
         try {
             String st = br.readLine();
             while (st != null && count < 3) {
                 count++;
-                sumThreeNum+= Integer.parseInt(st);
+                res[0] += Integer.parseInt(st);
                 st = br.readLine();
             }
 
             if (count < 3) {
-                throw new Exception("Не хватает числа");
+                res[1] = 1; // Не хватает числа
             }
 
-            return sumThreeNum;
+            br.close();
         } catch (Exception e) {
-            throw new RuntimeException(e);
-        } finally {
-            if (br != null) {
-                try {
-                    br.close();
-                } catch (IOException e) {
-                    System.out.println(e.getMessage());
-                }
-            }
+            res[1] = 2; // Неизвестная ошибка
         }
+        return res;
     }
 }
 
@@ -115,14 +120,11 @@ class NewCats {
                 st = br.readLine();
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());
         } finally {
             if (br != null){
                 try {
                     br.close();
-                } catch (IOException e) {
-                    System.out.println(e.getMessage());
-                }
+                } catch (IOException e) { }
             }
         }
         }
@@ -136,17 +138,16 @@ public class Main {
         Random rand = new Random();
 
         // Вызов для задания 3.1
-        NewFiles.create();
+        System.out.println(NewFiles.create());
 
         // Вызов для задания 3.2
         int first = rand.nextInt(10) + 1;
         int second = rand.nextInt(10) + 1;
         System.out.println(first + ";" + second);
-        try {
-            System.out.println(SumOfTwoFiles.sum(first, second));
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+
+        int[] res = SumOfTwoFiles.sum(first, second);
+        System.out.println(res[0]);
+        System.out.println(res[1]);
 
         // Вызов для задания 3.3
         NewCats.createPets();
