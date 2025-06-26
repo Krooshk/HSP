@@ -71,22 +71,19 @@ class SumOfTwoFiles {
     }
 
     public static HashMap<String, Integer> sumOneFile(BufferedReader br) {
-        int count = 0;
         HashMap<String, Integer> res = new HashMap<>();
         res.put("error", 0);
         res.put("sum", 0);
 
         try {
-            String st = br.readLine();
-            while (st != null && count < 3) {
-                count++;
-                res.put("sum", res.get("sum") + Integer.parseInt(st));
+            String st = "";
+            for(int i = 0; i < 3; i++) {
                 st = br.readLine();
-            }
-
-            if (count < 3) {
-                res.put("error", 1); // Не хватает числа
-                return res;
+                if (st == null) {
+                    res.put("error", 1); // Не хватает числа
+                    return res;
+                }
+                res.put("sum", res.get("sum") + Integer.parseInt(st));
             }
 
             br.close();
@@ -106,10 +103,11 @@ class NewCats {
         try {
             File file = new File(path + "cats.txt");
             br = new BufferedReader(new FileReader(file));
-            String st = br.readLine();
+
             ArrayList<Cat> arrayList = new ArrayList<Cat>();
 
-            while(st != null) {
+
+            for (String st = br.readLine(); st != null; st = br.readLine()) {
                 String[] characteristic = st.split(" ");
                 String name = characteristic[0];
                 double weight = Double.parseDouble(characteristic[1]);
@@ -117,8 +115,6 @@ class NewCats {
                 Cat newCat = new Cat(name, weight, freq);
 
                 arrayList.add(newCat);
-
-                st = br.readLine();
             }
         } catch (Exception e) {
         } finally {
