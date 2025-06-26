@@ -1,13 +1,12 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 import Pets.Cat;
 
 // Задание 3.1
 class NewFiles {
-    static String path = "/home/kirill/Desktop/bbr/HSP/jv1/1_14/file/";
-
-    public static boolean create() {
+    public static boolean create(String path) {
         Random rand = new Random();
         boolean successExecution = true;
 
@@ -33,16 +32,16 @@ class NewFiles {
 
 // Задание 3.2
 class SumOfTwoFiles {
-    static String path = "/home/kirill/Desktop/bbr/HSP/jv1/1_14/file/";
+    public static HashMap<String, Integer> sum(int a, int b, String path) {
+        HashMap<String, Integer> res = new HashMap<>();
+        res.put("error", 0);
+        res.put("sum", 0);
 
-    public static int[] sum(int a, int b) {
-        int[] res = new int[2];
-        res[1] = 0;
-        
         boolean aIsNotValid = a < 1 || a > 10;
         boolean bIsNotValid = b < 1 || b > 10;
         if (aIsNotValid || bIsNotValid) {
-            res[1] = 1; // Заданные числа файлов не валидны
+            res.put("error", 1); // Заданные числа файлов не валидны
+            return res;
         }
 
         File file1 = new File(path + a + ".txt");
@@ -50,46 +49,50 @@ class SumOfTwoFiles {
         try {
             BufferedReader br1 = new BufferedReader(new FileReader(file1));
             BufferedReader br2 = new BufferedReader(new FileReader(file2));
-            int[] firstSum = SumOfTwoFiles.sumOneFile(br1);
-            int[] secondSum = SumOfTwoFiles.sumOneFile(br2);
-            if (firstSum[1] == 0) {
-                res[0] += firstSum[0];
+            HashMap<String, Integer> firstFile = SumOfTwoFiles.sumOneFile(br1);
+            HashMap<String, Integer> secondFile = SumOfTwoFiles.sumOneFile(br2);
+            if (firstFile.get("error") == 0) {
+                res.put("sum", firstFile.get("sum") + res.get("sum"));
             } else {
-                res[1] = 2; // Первый файл вернулся с ошибкой
+                res.put("error", 2); // Первый файл вернулся с ошибкой
+                return res;
             }
 
-            if (secondSum[1] == 0) {
-                res[0] += secondSum[0];
+            if (secondFile.get("error") == 0) {
+                res.put("sum", secondFile.get("sum") + res.get("sum"));
             } else {
-                res[1] = 3; // Второй файл вернулся с ошибкой
+                res.put("error", 3); // Второй файл вернулся с ошибкой
             }
         } catch (Exception e) {
-            res[1] = 4; // Ошибка при чтении файла
+            res.put("error", 4); // Ошибка при чтении файла
         }
 
         return res;
     }
 
-    public static int[] sumOneFile(BufferedReader br) {
+    public static HashMap<String, Integer> sumOneFile(BufferedReader br) {
         int count = 0;
-        int[] res = new int[2];
-        res[1] = 0;
+        HashMap<String, Integer> res = new HashMap<>();
+        res.put("error", 0);
+        res.put("sum", 0);
 
         try {
             String st = br.readLine();
             while (st != null && count < 3) {
                 count++;
-                res[0] += Integer.parseInt(st);
+                res.put("sum", res.get("sum") + Integer.parseInt(st));
                 st = br.readLine();
             }
 
             if (count < 3) {
-                res[1] = 1; // Не хватает числа
+                res.put("error", 1); // Не хватает числа
+                return res;
             }
 
             br.close();
         } catch (Exception e) {
-            res[1] = 2; // Ошибка при закрытии потока
+            res.put("error", 2); // Ошибка при закрытии потока
+            return res;
         }
         return res;
     }
@@ -97,9 +100,7 @@ class SumOfTwoFiles {
 
 // Задание 3.3
 class NewCats {
-    static String path = "/home/kirill/Desktop/bbr/HSP/jv1/1_14/file/";
-
-    public static void createPets() {
+    public static void createPets(String path) {
         BufferedReader br = null;
 
         try {
@@ -135,22 +136,23 @@ class NewCats {
 
 public class Main {
     public static void main (String[]args) {
+        String path = "/home/kirill/Desktop/bbr/HSP/jv1/1_14/file/";
         Random rand = new Random();
 
         // Вызов для задания 3.1
-        System.out.println(NewFiles.create());
+        System.out.println(NewFiles.create(path));
 
         // Вызов для задания 3.2
         int first = rand.nextInt(10) + 1;
         int second = rand.nextInt(10) + 1;
         System.out.println(first + ";" + second);
 
-        int[] res = SumOfTwoFiles.sum(first, second);
-        System.out.println(res[0]);
-        System.out.println(res[1]);
+        HashMap<String, Integer> res = SumOfTwoFiles.sum(first, second, path);
+        System.out.println(res.get("error"));
+        System.out.println(res.get("sum"));
 
         // Вызов для задания 3.3
-        NewCats.createPets();
+        NewCats.createPets(path);
     }
 }
 
