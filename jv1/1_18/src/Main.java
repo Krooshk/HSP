@@ -61,7 +61,7 @@ public class Main {
         }
 
         for (HashMapEntry<Integer, String> entry : map.entrySet()) {
-            if (entry.getValue() >= N) {
+            if (entry.getValue() == N) {
                 result.add(entry.getKey());
             }
         }
