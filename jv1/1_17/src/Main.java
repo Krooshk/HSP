@@ -26,7 +26,7 @@ class FilePathfinder {
     public static String getExt(String filename) {
         int index = filename.lastIndexOf('.');
         if (index == -1) {
-            throw new Error("Нет расширения");
+            return null;
         }
 
         return filename.substring(index + 1);
@@ -73,7 +73,7 @@ public class Main {
         try {
             Transformer.transformFiles("jpg", "png");
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }

@@ -46,24 +46,28 @@ class SumOfTwoFiles {
 
         File file1 = new File(path + a + ".txt");
         File file2 = new File(path + b + ".txt");
-        try {
-            BufferedReader br1 = new BufferedReader(new FileReader(file1));
-            BufferedReader br2 = new BufferedReader(new FileReader(file2));
+        try (BufferedReader br1 = new BufferedReader(new FileReader(file1))){
             HashMap<String, Integer> firstFile = SumOfTwoFiles.sumOneFile(br1);
-            HashMap<String, Integer> secondFile = SumOfTwoFiles.sumOneFile(br2);
             if (firstFile.get("error") == 0) {
                 res.put("sum", firstFile.get("sum") + res.get("sum"));
             } else {
                 res.put("error", 2); // Первый файл вернулся с ошибкой
                 return res;
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+            res.put("error", 4); // Ошибка при чтении файла
+        }
 
+        try (BufferedReader br2 = new BufferedReader(new FileReader(file2))) {
+            HashMap<String, Integer> secondFile = SumOfTwoFiles.sumOneFile(br2);
             if (secondFile.get("error") == 0) {
                 res.put("sum", secondFile.get("sum") + res.get("sum"));
             } else {
                 res.put("error", 3); // Второй файл вернулся с ошибкой
             }
         } catch (Exception e) {
+            e.printStackTrace();
             res.put("error", 4); // Ошибка при чтении файла
         }
 
