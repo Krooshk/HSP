@@ -58,11 +58,9 @@ public class Main {
             } else {
                 map.put(num, 1);
             }
-        }
 
-        for (HashMapEntry<Integer, String> entry : map.entrySet()) {
-            if (entry.getValue() == N) {
-                result.add(entry.getKey());
+            if (map.get(num) == N){
+                result.add(num);
             }
         }
 
