@@ -47,7 +47,7 @@ public class Main {
     }
 
     // Задание 2
-    public static ArrayList<Integer> getNumsMoreThen(ArrayList<Integer> list, int N) {
+    public static ArrayList<Integer> getNumsEqual(ArrayList<Integer> list, int N) {
         HashMap<Integer, Integer> map = new HashMap<>();
         ArrayList<Integer> result = new ArrayList<>();
 
@@ -83,7 +83,7 @@ public class Main {
         }
 
         // Получение списка из задания 2
-        ArrayList<Integer> res = getNumsMoreThen(list, 12);
+        ArrayList<Integer> res = getNumsEqual(list, 12);
         for (Integer val : res) {
             logger.info(val);
         }
