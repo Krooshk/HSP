@@ -4,8 +4,8 @@ import java.util.Random;
 import java.util.logging.Logger;
 
 public class Main {
-    private Random random = new Random();
-    Logger logger = Logger.getLogger(getClass().getName());
+    private static Random random = new Random();
+    static Logger logger = Logger.getLogger(Main.class.getName());
     // Задание 1
     public static void operationWithMaps(){
         HashMap<Integer, String> map = new HashMap<>();
@@ -17,7 +17,7 @@ public class Main {
             map.put(array[i], String.valueOf(array2[i]));
         }
 
-        for (HashMapEntry<Integer, String> entry : map.entrySet()) {
+        for (HashMap.Entry<Integer, String> entry : map.entrySet()) {
             String value = entry.getValue();
             logger.info(value);
         }
@@ -33,7 +33,7 @@ public class Main {
 
         for (int i = 0; i < array.length; i++) {
             for (int j = i; j < array.length - 1; j++) {
-                boolean willSwap = this.random.nextInt(2) == 0;
+                boolean willSwap = random.nextInt(2) == 0;
 
                 if (willSwap) {
                     int tmp = array[i];
@@ -52,8 +52,8 @@ public class Main {
         ArrayList<Integer> result = new ArrayList<>();
 
         for (int num : list) {
-            if (map.containsKey(num)) {
-                int old = map.get(num);
+            Integer old = map.get(num);
+            if (old != null) {
                 map.put(num, old + 1);
             } else {
                 map.put(num, 1);
@@ -83,7 +83,7 @@ public class Main {
         // Получение списка из задания 2
         ArrayList<Integer> res = getNumsEqual(list, 12);
         for (Integer val : res) {
-            logger.info(val);
+            logger.info(String.valueOf(val));
         }
     }
 }
