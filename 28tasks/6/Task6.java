@@ -37,7 +37,7 @@ public class Task6
 
         for (int i = 0; i < str.length(); i++){
             char ch = str.charAt(i);
-            if (ch != '0' && ch != '.'){
+            if (ch != '0' && ch != '.' && ch != ',') {
                 res += ch;
             }
         }
