@@ -24,6 +24,14 @@ public class Task7Test {
     }
 
     @Test public void testRegres(){
+        //  1) stroka |razbivaetsya| na nabor |strok cherez| vyravnivanie| po zadannoj| shirine.
+        String str = "1) stroka razbivaetsya na nabor strok cherez vyravnivanie po zadannoj shirine.";
+        String word = "strok";
+        int[] arr = new int[]{ 0, 0, 0, 1, 0, 0, 0 };
+        assertArrayEquals(Task7.WordSearch(12, str, word), arr);
+    }
+
+    @Test public void testRegres2(){
         String str = " строка разбивается на набор строк через выравнивание по заданной ширине.";
         String word = "строк";
         int[] arr = new int[]{ 0, 0, 0, 1, 0, 0, 0 };
@@ -40,7 +48,7 @@ public class Task7Test {
 
     @Test public void testGetListFull(){
         String str = " строка разбивается на набор строк через выравнивание по заданной ширине.";
-        String[] arr = new String[]{ " строка ", "разбивается ", "на набор ", "строк через ", "выравнивание", " по заданной", " ширине." };
+        String[] arr = new String[]{ "строка ", "разбивается ", "на набор ", "строк через ", "выравнивание", "по заданной ", "ширине." };
         ArrayList<String> list = new ArrayList<>();
         for (int i = 0; i < arr.length; i++){
             list.add(arr[i]);

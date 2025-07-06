@@ -13,6 +13,9 @@ public class Level1
         String copyStr = s;
 
         while(copyStr.length() > 0) {
+            if (copyStr.charAt(0) == ' ') {
+                copyStr = copyStr.substring(1);
+            }
             if (copyStr.length() <= len) {
                 list.add(copyStr);
                 copyStr = "";
