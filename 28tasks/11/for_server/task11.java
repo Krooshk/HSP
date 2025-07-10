@@ -54,6 +54,10 @@ public class Level1
                 result += arr1[k];
             }
         }
+        
+        if (result.length() == 0) {
+            result = "0";
+        }
 
         return result;
     }
