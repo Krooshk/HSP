@@ -16,11 +16,12 @@ public class Task12
         for (int i = 0; i < N; i++) {
             int vote = Votes[i];
             sumVotes += vote;
+            if (vote == Votes[indexMax]) {
+                people++;
+            }
             if (vote > Votes[indexMax]) {
                 indexMax = i;
                 people = 1;
-            } else if (vote == Votes[indexMax]) {
-                people++;
             }
         }
 
@@ -32,9 +33,8 @@ public class Task12
 
         if (percent > 0.5) {
             return  MAJOR_WINNER + " " + (indexMax + 1);
-        } else {
-            return  MINOR_WINNER + " " + (indexMax + 1);
         }
+        return  MINOR_WINNER + " " + (indexMax + 1);
     }
 
 }
