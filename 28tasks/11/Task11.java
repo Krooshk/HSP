@@ -55,6 +55,10 @@ public class Task11
             }
         }
 
+        if (result.length() == 0) {
+            result = "0";
+        }
+
         return result;
     }
 
