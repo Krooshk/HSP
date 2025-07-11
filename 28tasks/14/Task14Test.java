@@ -24,4 +24,9 @@ public class Task14Test {
         assertEquals(Task14.Unmanned(10, 1, arr), 10);
     }
 
+    @Test public void testRegres2(){
+        int [][] arr = new int[][]{ {11,5,5}, {15,2,2} };
+        assertEquals(Task14.Unmanned(10, 2, arr), 10);
+    }
+
 }

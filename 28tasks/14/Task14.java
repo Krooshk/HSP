@@ -13,7 +13,7 @@ public class Task14
             absolute += point - prev;
             prev = point;
 
-            if (point == L) {
+            if (point >= L) {
                 continue;
             }
 

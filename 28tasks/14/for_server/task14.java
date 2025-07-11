@@ -13,7 +13,7 @@ public class Level1
             absolute += point - prev;
             prev = point;
 
-            if (point == L) {
+            if (point >= L) {
                 continue;
             }
 
