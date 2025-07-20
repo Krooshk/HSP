@@ -3,6 +3,9 @@ import java.util.*;
 public class Task27
 {
     static public boolean Football(int F[], int N){
+        boolean initialOrder = check(F);
+        if (initialOrder) return true;
+
         int[] copyOrder = Arrays.copyOf(F, N);
         int[] copySwap = Arrays.copyOf(F, N);
         Integer start = null;
