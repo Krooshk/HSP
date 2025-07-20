@@ -4,7 +4,7 @@ public class Level1
 {
     static public boolean Football(int F[], int N){
         boolean initialOrder = check(F);
-        if (initialOrder) return true;
+        if (initialOrder) return false;
 
         int[] copyOrder = Arrays.copyOf(F, N);
         int[] copySwap = Arrays.copyOf(F, N);
