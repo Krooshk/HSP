@@ -3,49 +3,63 @@ import java.util.*;
 public class Task27
 {
     static public boolean Football(int F[], int N){
-        int[] sorted = Arrays.copyOf(F, N);
-        Arrays.sort(sorted);
-        int[] copy = Arrays.copyOf(F, N);
-        ArrayList<Integer> notEqualIndex = new ArrayList<>();
+        int[] copyOrder = Arrays.copyOf(F, N);
+        int[] copySwap = Arrays.copyOf(F, N);
+        Integer start = null;
+        Integer finish = null;
 
-        for (int i = 0; i < N; i++){
-            if (F[i] != sorted[i]){
-                notEqualIndex.add(i);
+        for (int i = 0; i < N - 1; i++){
+            if (F[i] > F[i+1] && start == null){
+                start = i;
+            }
+
+            if (start != null && F[i] < F[i+1]) {
+                finish = i;
             }
         }
 
-        int sizeNotEqual = notEqualIndex.size();
-
-        if (sizeNotEqual == 2) {
-            int a = notEqualIndex.get(0);
-            int b = notEqualIndex.get(1);
-            int temp = copy[a];
-            copy[a] = copy[b];
-            copy[b] = temp;
-
-            return Arrays.equals(sorted, copy);
+        if (finish == null) {
+            finish = N - 1;
         }
 
-        for (int i = 0; i < sizeNotEqual; i++){
-            if (i != 0 && notEqualIndex.get(i) - 1 != notEqualIndex.get(i)){
+        int length = finish - start + 1;
+
+        if (length >= 2) {
+            for (int i = 0; i < length / 2; i++){
+                int temp = copyOrder[finish  - i];
+                copyOrder[finish - i] = copyOrder[start + i];
+                copyOrder[start + i] = temp;
+            }
+
+            boolean isRightOrder = check(copyOrder);
+            if (isRightOrder) return true;
+        }
+
+        for (int i = N - 1; i > 0; i--) {
+            if (F[i] < F[i - 1]){
+                finish = i;
+                break;
+            }
+        }
+
+        int temp = copySwap[start];
+        copySwap[start] = copySwap[finish];
+        copySwap[finish] = temp;
+
+        return  check(copySwap);
+    }
+
+    static public boolean check(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++){
+            if (arr[i] > arr[i+1]){
                 return false;
             }
         }
 
-        int start = notEqualIndex.get(0);
-        int finish = notEqualIndex.get(sizeNotEqual - 1);
-
-        int[] part = Arrays.copyOfRange(copy, start, finish + 1);
-        Arrays.sort(part);
-        int count = 0;
-
-        for (int i = start; i <= finish; i++) {
-            copy[i] = part[count];
-            count++;
-        }
-
-        return Arrays.equals(sorted, copy);
+        return true;
     }
+
+
 
 }
 

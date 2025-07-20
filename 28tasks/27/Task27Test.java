@@ -31,6 +31,11 @@ public class Task27Test {
         assertEquals(Task27.Football(arr, arr.length), true);
     }
 
+    @Test public void testRegres6() {
+        int[] arr = new int[]{ 9, 3, 5, 7, 1 };
+        assertEquals(Task27.Football(arr, arr.length), true);
+    }
+
 }
 
 
