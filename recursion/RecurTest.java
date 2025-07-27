@@ -101,4 +101,8 @@ public class RecurTest {
         assertEquals(Recur.secondMax(arr), 4);
     }
 
+    @Test public void testFilesRegres(){
+        System.out.println(Recur.getFiles("/home/kirill/Desktop/bbr/HSP/jv1"));
+    }
+
 }

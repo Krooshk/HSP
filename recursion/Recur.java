@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.File;
 
 class Recur {
     public static int degree(int N, int M) {
@@ -98,6 +99,27 @@ class Recur {
         }
 
         return helperSecondMax(arr, max, exMax, index + 1);
+    }
+
+    public static ArrayList<String> getFiles(String path){
+        ArrayList<String> store = new ArrayList<String>();
+        File obj = new File(path);
+        return helperGetFiles(obj, store);
+    }
+
+    public static ArrayList<String> helperGetFiles(File obj, ArrayList<String> store){
+        if (!obj.isDirectory()){
+            store.add(obj.getName());
+        } else {
+            File[] files = obj.listFiles();
+            if (files != null) {
+                for (File file : files) {
+                    helperGetFiles(file, store);
+                }
+            }
+        }
+
+        return store;
     }
 
 
