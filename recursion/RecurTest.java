@@ -47,50 +47,49 @@ public class RecurTest {
     }
 
     @Test public void testPalindromeRegresOdd(){
-        assertEquals(Recur.isPalindrome("madam", 0), true);
+        assertEquals(Recur.isPalindrome("madam"), true);
     }
 
     @Test public void testPalindromeRegresEven(){
-        assertEquals(Recur.isPalindrome("abccba", 0), true);
+        assertEquals(Recur.isPalindrome("abccba"), true);
     }
 
     @Test public void testPalindromeRegresOddFalse(){
-        assertEquals(Recur.isPalindrome("qwert", 0), false);
+        assertEquals(Recur.isPalindrome("qwert"), false);
     }
 
     @Test public void testPalindromeRegresEvenFalse(){
-        assertEquals(Recur.isPalindrome("balzam", 0), false);
+        assertEquals(Recur.isPalindrome("balzam"), false);
     }
 
     @Test public void testPalindromeEmpty(){
-        assertEquals(Recur.isPalindrome("", 0), true);
+        assertEquals(Recur.isPalindrome(""), true);
     }
 
-//    @Test public void testOnlyEvenVelue(){
-//        LinkedList<Integer> list = new LinkedList<>();
-//
-//        list.add(1);
-//        list.add(2);
-//        list.add(3);
-//        list.add(4);
-//        list.add(5);
-//        list.add(6);
-//
-//        assertEquals(Recur.printOnlyEvenValue(list, 0), "");
-//    }
+    @Test public void testOnlyEvenVelue(){
+        LinkedList<Integer> list = new LinkedList<>();
 
-//    @Test public void testOnlyEvenIndex(){
-//        LinkedList<Integer> list = new LinkedList<>();
-//
-//        list.add(1);
-//        list.add(2);
-//        list.add(3);
-//        list.add(4);
-//        list.add(5);
-//        list.add(6);
-//
-//        assertEquals(Recur.printOnlyEvenIndex(list, 0), "");
-//    }
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(5);
+        list.add(6);
+        Recur.printOnlyEvenValue(list);
+    }
+
+    @Test public void testOnlyEvenIndex(){
+        LinkedList<Integer> list = new LinkedList<>();
+
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(5);
+        list.add(6);
+
+        Recur.printOnlyEvenIndex(list);
+    }
 
     @Test public void testMaxRegres(){
         int[] arr = new int[] { 2, 5, 4, 3, 5 };

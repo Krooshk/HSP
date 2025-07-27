@@ -28,7 +28,11 @@ class Recur {
         return 1 + getLengthOfList(list);
     }
 
-    public static boolean isPalindrome(String str, int offset){
+    public static boolean isPalindrome(String str){
+        return helperIsPalindrome(str, 0);
+    }
+
+    public static boolean helperIsPalindrome(String str, int offset) {
         int end = str.length() - 1;
 
         if (offset >= str.length() / 2) {
@@ -39,10 +43,14 @@ class Recur {
             return false;
         }
 
-        return isPalindrome(str, offset + 1);
+        return helperIsPalindrome(str, offset + 1);
     }
 
-    public static void printOnlyEvenValue(LinkedList<Integer> list, int index) {
+    public static void printOnlyEvenValue(LinkedList<Integer> list) {
+        helperPrintOnlyEvenValue(list, 0);
+    }
+
+    public static void helperPrintOnlyEvenValue(LinkedList<Integer> list, int index){
         if (index >= list.size()) {
             return;
         }
@@ -52,26 +60,27 @@ class Recur {
             System.out.println(currentNum);
         }
 
-        printOnlyEvenValue(list, index + 1);
+        helperPrintOnlyEvenValue(list, index + 1);
     }
 
-    public static void printOnlyEvenIndex(LinkedList<Integer> list, int index) {
+    public static void printOnlyEvenIndex(LinkedList<Integer> list) {
+        helperPrintOnlyEvenIndex(list, 0);
+    }
+
+    public static void helperPrintOnlyEvenIndex(LinkedList<Integer> list, int index){
         if (index >= list.size()) {
             return;
         }
+        System.out.println(list.get(index));
 
-        if (index % 2 == 0) {
-            System.out.println(list.get(index));
-        }
-
-        printOnlyEvenIndex(list, index + 1);
+        helperPrintOnlyEvenIndex(list, index + 2);
     }
 
     public static int secondMax(int[] arr){
-        return traverseMaxSecond(arr, null, null, 0);
+        return helperSecondMax(arr, null, null, 0);
     }
 
-    public static int traverseMaxSecond(int[] arr, Integer max, Integer exMax, int index){
+    public static int helperSecondMax(int[] arr, Integer max, Integer exMax, int index){
         if (max == null) {
             max = arr[index];
         }
@@ -88,7 +97,7 @@ class Recur {
             return exMax;
         }
 
-        return traverseMaxSecond(arr, max, exMax, index + 1);
+        return helperSecondMax(arr, max, exMax, index + 1);
     }
 
 
