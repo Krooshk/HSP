@@ -67,5 +67,29 @@ class Recur {
         printOnlyEvenIndex(list, index + 1);
     }
 
+    public static int secondMax(int[] arr){
+        return traverseMaxSecond(arr, null, null, 0);
+    }
+
+    public static int traverseMaxSecond(int[] arr, Integer max, Integer exMax, int index){
+        if (max == null) {
+            max = arr[index];
+        }
+
+        if (arr[index] > max) {
+            int temp = max;
+            max = arr[index];
+            exMax = temp;
+        } else if (exMax == null || arr[index] > exMax) {
+            exMax = arr[index];
+        }
+
+        if (index == arr.length - 1) {
+            return exMax;
+        }
+
+        return traverseMaxSecond(arr, max, exMax, index + 1);
+    }
+
 
 }

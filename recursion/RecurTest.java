@@ -92,4 +92,14 @@ public class RecurTest {
 //        assertEquals(Recur.printOnlyEvenIndex(list, 0), "");
 //    }
 
+    @Test public void testMaxRegres(){
+        int[] arr = new int[] { 2, 5, 4, 3, 5 };
+        assertEquals(Recur.secondMax(arr), 5);
+    }
+
+    @Test public void testMaxRegres2(){
+        int[] arr = new int[] { 2, 3, 5, 4 };
+        assertEquals(Recur.secondMax(arr), 4);
+    }
+
 }
