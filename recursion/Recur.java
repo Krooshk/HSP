@@ -42,5 +42,30 @@ class Recur {
         return isPalindrome(str, offset + 1);
     }
 
+    public static void printOnlyEvenValue(LinkedList<Integer> list, int index) {
+        if (index >= list.size()) {
+            return;
+        }
+
+        int currentNum = list.get(index);
+        if (currentNum % 2 == 0) {
+            System.out.println(currentNum);
+        }
+
+        printOnlyEvenValue(list, index + 1);
+    }
+
+    public static void printOnlyEvenIndex(LinkedList<Integer> list, int index) {
+        if (index >= list.size()) {
+            return;
+        }
+
+        if (index % 2 == 0) {
+            System.out.println(list.get(index));
+        }
+
+        printOnlyEvenIndex(list, index + 1);
+    }
+
 
 }
