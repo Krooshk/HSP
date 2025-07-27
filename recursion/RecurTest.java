@@ -47,23 +47,23 @@ public class RecurTest {
     }
 
     @Test public void testPalindromeRegresOdd(){
-        assertEquals(Recur.isPalindrome("madam"), true);
+        assertEquals(Recur.isPalindrome("madam", 0), true);
     }
 
     @Test public void testPalindromeRegresEven(){
-        assertEquals(Recur.isPalindrome("abccba"), true);
+        assertEquals(Recur.isPalindrome("abccba", 0), true);
     }
 
     @Test public void testPalindromeRegresOddFalse(){
-        assertEquals(Recur.isPalindrome("qwert"), false);
+        assertEquals(Recur.isPalindrome("qwert", 0), false);
     }
 
     @Test public void testPalindromeRegresEvenFalse(){
-        assertEquals(Recur.isPalindrome("balzam"), false);
+        assertEquals(Recur.isPalindrome("balzam", 0), false);
     }
 
     @Test public void testPalindromeEmpty(){
-        assertEquals(Recur.isPalindrome(""), true);
+        assertEquals(Recur.isPalindrome("", 0), true);
     }
 
 }

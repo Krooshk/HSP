@@ -28,17 +28,18 @@ class Recur {
         return 1 + getLengthOfList(list);
     }
 
-    public static boolean isPalindrome(String str){
+    public static boolean isPalindrome(String str, int offset){
         int end = str.length() - 1;
-        if (str.length() <= 1) {
+
+        if (offset >= str.length() / 2) {
             return true;
         }
 
-        if (str.charAt(0) != str.charAt(end)){
+        if (str.charAt(offset) != str.charAt(end - offset)){
             return false;
         }
 
-        return isPalindrome(str.substring(1, end));
+        return isPalindrome(str, offset + 1);
     }
 
 
