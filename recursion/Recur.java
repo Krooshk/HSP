@@ -77,20 +77,32 @@ class Recur {
         helperPrintOnlyEvenIndex(list, index + 2);
     }
 
-    public static int secondMax(int[] arr){
-        return helperSecondMax(arr, null, null, 0);
-    }
-
-    public static int helperSecondMax(int[] arr, Integer max, Integer exMax, int index){
-        if (max == null) {
-            max = arr[index];
+    public static Integer secondMax(int[] arr){
+        if (arr.length <= 2) {
+            return null;
         }
 
+        int max;
+        int exMax;
+
+        if(arr[0] > arr[1]) {
+            max = arr[0];
+            exMax = arr[1];
+        } else {
+            max = arr[1];
+            exMax = arr[0];
+        }
+
+
+        return helperSecondMax(arr, max, exMax, 2);
+    }
+
+    public static Integer helperSecondMax(int[] arr, Integer max, Integer exMax, int index){
         if (arr[index] > max) {
             int temp = max;
             max = arr[index];
             exMax = temp;
-        } else if (exMax == null || arr[index] > exMax) {
+        } else if (arr[index] > exMax) {
             exMax = arr[index];
         }
 
@@ -104,23 +116,48 @@ class Recur {
     public static ArrayList<String> getFiles(String path){
         ArrayList<String> store = new ArrayList<String>();
         File obj = new File(path);
-        return helperGetFiles(obj, store);
-    }
-
-    public static ArrayList<String> helperGetFiles(File obj, ArrayList<String> store){
         if (!obj.isDirectory()){
             store.add(obj.getName());
         } else {
             File[] files = obj.listFiles();
             if (files != null) {
                 for (File file : files) {
-                    helperGetFiles(file, store);
+                    ArrayList<String> insideStore = getFiles(file.getAbsolutePath());
+                    store.addAll(insideStore);
                 }
             }
         }
 
         return store;
     }
+
+    public static ArrayList<String> generateParens(int count) {
+        ArrayList<String> list = new ArrayList<String>();
+        addParen(list, count, count, "", 0);
+        return list;
+    }
+
+    public static void addParen(ArrayList<String> list, int leftRem, int rightRem, String str, int count) {
+        if (leftRem < 0 || rightRem < leftRem) return;
+
+        if (leftRem == 0 && rightRem == 0) {
+            list.add(str);
+            return;
+        }
+
+        if (leftRem > 0) {
+            String copyStr = str;
+            copyStr += '(';
+            addParen(list, leftRem - 1, rightRem, copyStr, count + 1);
+        }
+
+        if (rightRem > leftRem) {
+            String copyStr = str;
+            copyStr += ')';
+            addParen(list, leftRem, rightRem - 1, copyStr, count + 1);
+        }
+    }
+
 
 
 }

@@ -105,4 +105,8 @@ public class RecurTest {
         System.out.println(Recur.getFiles("/home/kirill/Desktop/bbr/HSP/jv1"));
     }
 
+    @Test public void testParen(){
+        System.out.println(Recur.generateParens(3));
+    }
+
 }
