@@ -3,7 +3,6 @@ import java.util.*;
 public class Cyberpunk4 {
     public static int artificial_muscle_fibers(int[] arr){
         byte[] store = new byte[8192];
-        int count = 0;
 
         for (int el: arr) {
             getStateOfNum(store, el);
