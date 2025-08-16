@@ -135,6 +135,18 @@ public class LinkedList2
         return count;
     }
 
+    public String getStringView()
+    {
+        String str = "";
+        Node node = this.head;
+        while (node != null) {
+            str += node.value;
+            node = node.next;
+        }
+
+        return str;
+    }
+
     public void insertAfter(Node _nodeAfter, Node _nodeToInsert)
     {
         if (_nodeAfter == null) {

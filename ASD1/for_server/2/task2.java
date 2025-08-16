@@ -24,7 +24,7 @@ public class LinkedList2
         this.tail = _item;
     }
 
-    // 2-1 Find time - O(n), space - O(1)
+    // 2-1 Find time-O(n), space-O(1)
     public Node find(int _value)
     {
         Node node = this.head;
@@ -37,7 +37,7 @@ public class LinkedList2
         return null;
     }
 
-    // 2-2 FindAll - O(n), space - O(n)
+    // 2-2 FindAll time-O(n), space-O(n)
     public ArrayList<Node> findAll(int _value)
     {
         ArrayList<Node> nodes = new ArrayList<Node>();
@@ -51,7 +51,7 @@ public class LinkedList2
         return nodes;
     }
 
-    // 2-3 RemoveOne - O(n), space - O(1)
+    // 2-3 RemoveOne time-O(n), space-O(1)
     public boolean remove(int _value)
     {
         Node node = this.head;
@@ -87,7 +87,7 @@ public class LinkedList2
         return false;
     }
 
-    // 2-4 removeAll - O(n), space - O(1)
+    // 2-4 removeAll time-O(n), space-O(1)
     public void removeAll(int _value)
     {
         Node node = this.head;
@@ -122,7 +122,7 @@ public class LinkedList2
         }
     }
 
-    // 2-7 Clear - O(1), space - O(1)
+    // 2-7 Clear time-O(1), space-O(1)
     public void clear()
     {
         this.head = null;
@@ -140,7 +140,7 @@ public class LinkedList2
         return count;
     }
 
-    // 2-5,6 insertAfter - O(n), space - O(1)
+    // 2-5,6 insertAfter time-O(n), space-O(1)
     public void insertAfter(Node _nodeAfter, Node _nodeToInsert)
     {
         if (_nodeAfter == null) {
@@ -189,3 +189,4 @@ class Node
         prev = null;
     }
 }
+
