@@ -26,6 +26,19 @@ public class DynArrayTest {
         assertEquals(dyn.count, 17);
     }
 
+    @Test public void insertWithReallocate2(){
+        DynArray<Integer> dyn = new DynArray<>(Integer.class);
+
+        for (int i = 0; i < 16; i++) {
+            dyn.append(1);
+        }
+
+        dyn.insert(5, 16);
+
+        assertEquals(dyn.array.length, 32);
+        assertEquals(dyn.count, 17);
+    }
+
     @Test public void insertNotCorrectPlace(){
         DynArray<Integer> dyn = new DynArray<>(Integer.class);
 
@@ -49,6 +62,29 @@ public class DynArrayTest {
 
         assertEquals(dyn.array.length, 16);
         assertEquals(dyn.count, 15);
+    }
+
+    @Test public void removeLastElem(){
+        DynArray<Integer> dyn = new DynArray<>(Integer.class);
+
+        for (int i = 0; i < 16; i++) {
+            dyn.append(1);
+        }
+
+        dyn.remove(15);
+
+        assertEquals(dyn.array.length, 16);
+        assertEquals(dyn.count, 15);
+    }
+
+    @Test public void removeGetError(){
+        DynArray<Integer> dyn = new DynArray<>(Integer.class);
+
+        for (int i = 0; i < 16; i++) {
+            dyn.append(1);
+        }
+
+        Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, () -> dyn.remove(16));
     }
 
     @Test public void removeWithRellocate(){

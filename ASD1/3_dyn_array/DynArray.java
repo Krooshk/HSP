@@ -44,7 +44,7 @@ public class DynArray<T>
     // 3-3 insert time-O(n), space-O(n)
     public void insert(T itm, int index)
     {
-        if (index < 0 || index > capacity - 1) {
+        if (index < 0 || index > count) {
             throw new ArrayIndexOutOfBoundsException();
         }
         if (count == capacity) {
@@ -61,12 +61,16 @@ public class DynArray<T>
     // 3-4 insert time-O(n), space-O(1)
     public void remove(int index)
     {
-        if (index < 0 || index >= capacity) {
+        if (index < 0 || index > count) {
             throw new ArrayIndexOutOfBoundsException();
         }
 
-        for (int i = index + 1; i >= count; i++) {
-            array[i-1] = array[i];
+        for (int i = index; i >= count; i++) {
+            if (i + 1 == count) {
+                array[i] = null;
+            } else {
+                array[i] = array[i + 1];
+            }
         }
         count--;
 
