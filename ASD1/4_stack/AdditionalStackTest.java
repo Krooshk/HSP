@@ -1,41 +1,77 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class AdditionalStackTest {
-    @Test public void parenthesesValidatorRegres(){
-        assertEquals(AdditionalStack.parenthesesValidator("(()((())()))"), true);
+public class AdditionalStackTest {
+    @Test public void stackWithMinOnlyPush(){
+        AdditionalStack stack = new AdditionalStack();
+        stack.push(4);
+        stack.push(7);
+        stack.push(3);
+        stack.push(89);
+        stack.push(77);
+
+        assertEquals(stack.getMin(), Integer.valueOf(3));
     }
 
-    @Test public void parenthesesValidatorRegres2(){
-        assertEquals(AdditionalStack.parenthesesValidator("(()()(()"), false);
+    @Test public void stackWithMinPushPop(){
+        AdditionalStack stack = new AdditionalStack();
+        stack.push(7);
+        stack.push(6);
+        stack.push(55);
+        stack.push(54);
+        stack.push(65);
+        stack.push(6);
+        stack.pop();
+        stack.pop();
+
+        assertEquals(stack.getMin(), Integer.valueOf(6));
     }
 
-    @Test public void parenthesesValidatorRegres3(){
-        assertEquals(AdditionalStack.parenthesesValidator("())("), false);
+    @Test public void stackWithMinPushPop2(){
+        AdditionalStack stack = new AdditionalStack();
+        stack.push(7);
+        stack.push(6);
+        stack.push(55);
+        stack.push(54);
+        stack.push(65);
+        stack.push(6);
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.pop();
+
+        assertEquals(stack.getMin(), Integer.valueOf(7));
     }
 
-    @Test public void parenthesesValidatorRegres4(){
-        assertEquals(AdditionalStack.parenthesesValidator("))(("), false);
+    @Test public void stackEmpty(){
+        AdditionalStack stack = new AdditionalStack();
+
+        assertEquals(stack.getMin(), null);
     }
 
-    @Test public void parenthesesValidatorRegres5(){
-        assertEquals(AdditionalStack.parenthesesValidator("((())"), false);
+    @Test public void stackAverage(){
+        AdditionalStack stack = new AdditionalStack();
+        for (int i = 1; i <= 10; i++) {
+            stack.push(i);
+        }
+        for (int i = 11; i <= 20; i++) {
+            stack.push(i);
+        }
+
+        assertEquals(stack.getAverage(), Integer.valueOf(10));
     }
 
-    @Test public void parenthesesValidatorRegresV2(){
-        assertEquals(AdditionalStack.parenthesesValidatorV2("((([[{{}}]])))"), true);
-    }
+    @Test public void stackAverage2(){
+        AdditionalStack stack = new AdditionalStack();
+        for (int i = 1; i <= 10; i++) {
+            stack.push(i);
+        }
+        for (int i = 0; i < 5; i++) {
+            stack.pop();
+        }
 
-    @Test public void parenthesesValidatorRegresV2_2(){
-        assertEquals(AdditionalStack.parenthesesValidatorV2("[()(())()(())[{()}][()]{{{}}}]"), true);
-    }
-
-    @Test public void parenthesesValidatorRegresV2_3(){
-        assertEquals(AdditionalStack.parenthesesValidatorV2("((({{{}}}))]"), false);
-    }
-
-    @Test public void parenthesesValidatorRegresV2_4(){
-        assertEquals(AdditionalStack.parenthesesValidatorV2("{[(({}))]"), false);
+        assertEquals(stack.getAverage(), Integer.valueOf(3));
     }
 }

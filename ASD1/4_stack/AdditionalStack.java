@@ -1,41 +1,60 @@
-// 4-3 Если стек пустой, то цикл не запустится. Если его размер больше или равен 1, то будет выполняться пока не очистится полностью.
+import java.util.LinkedList;
 
-import java.util.HashMap;
-import java.util.HashSet;
-
+// 4-6, 4-7 minValue, average
 public class AdditionalStack {
-     public static boolean parenthesesValidator(String str) {
-        Stack<Character> stack = new Stack();
-        for (char ch: str.toCharArray()){
-            if (ch == '(') {
-                stack.push('(');
-            } else if (stack.pop() == null) {
-                return false;
-            }
+        private Stack<Integer> minStack;
+        private LinkedList store;
+        private int average = 0;
+        public AdditionalStack()
+        {
+            store = new LinkedList<Integer>();
+            minStack = new Stack<Integer>();
+
         }
 
-        return stack.size() == 0;
-    }
-
-    public static boolean parenthesesValidatorV2(String str) {
-        Stack<Character> stack = new Stack();
-        HashMap<Character, Character> map = new HashMap<>();
-        HashSet<Character> set = new HashSet<>();
-        set.add('(');
-        set.add('[');
-        set.add('{');
-        map.put(')', '(');
-        map.put(']', '[');
-        map.put('}', '{');
-
-        for (char ch: str.toCharArray()){
-            if (set.contains(ch)) {
-                stack.push(ch);
-            } else if (stack.pop() != map.get(ch)) {
-                return false;
-            }
+        public Integer size()
+        {
+            return store.size();
         }
 
-        return stack.size() == 0;
-    }
+        public Integer pop()
+        {
+            if (size() == 0) {
+                return null;
+            }
+
+            Integer removedElement = (Integer) store.removeLast();
+            if (minStack.peek() == removedElement) {
+                minStack.pop();
+            }
+            average -= removedElement;
+            return removedElement;
+        }
+
+        public void push(int val)
+        {
+            boolean isEmptyMinStack = minStack.size() == 0;
+            Integer minElem = minStack.peek();
+            if (isEmptyMinStack || minElem >= val) {
+                minStack.push(val);
+            }
+            average +=  val;
+            store.addLast(val);
+        }
+
+        public Integer peek()
+        {
+            if (size() == 0) {
+                return null;
+            }
+            return (Integer) store.peekLast();
+        }
+
+        public Integer getMin(){
+            return minStack.peek();
+        }
+
+        public Integer getAverage(){
+            return (int) average / this.size();
+        }
 }
