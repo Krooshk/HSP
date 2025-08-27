@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/2_Linked_List" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/3_dyn_array" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/4_stack" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/5_queue " isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/1_Linked_List" />
       <excludeFolder url="file://$MODULE_DIR$/for_server/1" />
     </content>
