@@ -26,6 +26,9 @@ public class OrderedList<T>
         tail = null;
         _ascending = asc;
     }
+    boolean isAsc(){
+        return this._ascending;
+    }
 
     // 7-2 Compare
     // 7-5 CompareGeneric
@@ -43,138 +46,77 @@ public class OrderedList<T>
     }
 
     // 7-3 add
-    public void add(T value)
-    {
-        if (head == null) {
-            this.head = new Node<>(value);
-            this.tail = this.head;
-        }
-
+    public void add(T value) {
         Node<T> curr = this.head;
-        for (; curr != null; curr = curr.next ){
-            if (this._ascending && compare(curr.value, value) > 0) {
-                append(curr, value);
+        for (;curr != null;){
+            int cmpNum = compare(curr.value, value);
+            if ((_ascending && cmpNum > 0) || (!_ascending && cmpNum < 0)) {
+                insertBefore(curr, value);
                 return;
             }
-            if (!this._ascending && compare(curr.value, value) < 0) {
-                append(curr, value);
-                return;
-            }
+            curr = curr.next;
         }
 
-        if (this._ascending) {
-            append(this.tail, value);
-        }
-
-        if (!this._ascending) {
-            append(this.head, value);
-        }
-
-
+        insertBefore(null, value);
     }
 
-    public void append(Node<T> pretendent, T value) {
-        Node<T> newNode = new Node(value);
-        if (this._ascending && this.tail == pretendent) {
-            Node<T> last = this.tail;
-            last.next = newNode;
-            newNode.prev = last;
-            this.tail = newNode;
-            return;
-        }
-        if (this._ascending) {
-            if (pretendent == this.head) {
-                this.head = newNode;
-                newNode.next = pretendent;
-                pretendent.prev = newNode;
-                return;
+    private void insertBefore(Node<T> node, T value) {
+        Node<T> newNode = new Node<>(value);
+        if (node == null) {
+            if (tail == null) {
+                this.head = tail = newNode;
+            } else {
+                this.tail.next = newNode;
+                newNode.prev = tail;
+                this.tail = newNode;
             }
-            Node<T> prev = pretendent.prev;
-            prev.next = newNode;
-            newNode.prev = prev;
-            newNode.next = pretendent;
-            pretendent.prev = newNode;
-            return;
-        }
-
-        if (!this._ascending && this.tail == pretendent) {
-            Node<T> first = this.head;
-            first.prev = newNode;
-            newNode.next = first;
+        } else if (node.prev == null) {
+            newNode.next = node;
+            node.prev = newNode;
             this.head = newNode;
-            return;
-        }
-
-        if (!this._ascending) {
-            if (pretendent == this.head) {
-                this.head = newNode;
-                newNode.next = pretendent;
-                pretendent.prev = newNode;
-                return;
-            }
-            Node<T> prev = pretendent.prev;
-            prev.next = newNode;
-            newNode.prev = prev;
-            newNode.next = pretendent;
-            pretendent.prev = newNode;
+        } else {
+            newNode.prev = node.prev;
+            newNode.next = node;
+            node.prev.next = newNode;
+            node.prev = newNode;
         }
     }
 
     // 7-6 find
-    public Node<T> find(T val)
-    {
+    public Node<T> find(T val) {
         Node<T> curr = this.head;
-        for (; curr != null; curr = curr.next ){
-            if (curr.value == val) {
-                return curr;
-            }
-            if (this._ascending && compare(curr.value, val) > 0) {
-                return null;
-            }
-            if (!this._ascending && compare(curr.value, val) < 0) {
-                return null;
-            }
+        for (;curr != null;) {
+            int cmp = compare(curr.value, val);
+            if (curr.value.equals(val)) return curr;
+            if ((this._ascending && cmp > 0) || (!this._ascending && cmp < 0)) break;
+            curr = curr.next;
         }
-
         return null;
     }
 
     //  7-4 delete
-    public void delete(T val)
-    {
-        Node<T> curr = this.head;
-        for (; curr != null; curr = curr.next ){
-            if (curr.value != val) continue;
+    public void delete(T val) {
+        Node<T> node = find(val);
+        if (node == null) return;
 
-            if (curr.prev == null && curr.next == null) {
-                clear(this._ascending);
-                return;
-            }
-            if (curr.next == null) {
-                Node<T> prev = curr.prev;
-                prev.next = null;
-                this.tail = prev;
-                return;
-            }
-            if (curr.prev == null) {
-                Node<T> next = curr.next;
-                next.prev = null;
-                this.head = next;
-                return;
-            }
+        if (node.prev != null) {
+            node.prev.next = node.next;
+        } else {
+            this.head = node.next;
+        }
 
-            Node<T> prev = curr.prev;
-            Node<T> next = curr.next;
-            prev.next = next;
-            next.prev = prev;
+        if (node.next != null) {
+            node.next.prev = node.prev;
+        } else {
+            this.tail = node.prev;
         }
     }
 
     public void clear(boolean asc)
     {
-        _ascending = asc;
-        head = null;
-        tail = null;
+        this._ascending = asc;
+        this.head = null;
+        this.tail = null;
     }
 
     public int count()
@@ -185,14 +127,59 @@ public class OrderedList<T>
             amount++;
         }
         return amount;
+    }
 
+    // 7-8* removeDuplicate
+    public void removeDuplicate(){
+        HashMap<T, Integer> map = new HashMap<>();
+        Node<T> curr = this.head;
+        for (; curr != null; curr = curr.next ){
+            if (map.containsKey(curr.value)) {
+                T key = curr.value;
+                delete(key);
+                map.remove(key);
+            } else {
+                map.put(curr.value, 1);
+            }
+        }
+    }
+
+    // 7-11* mostFrequently
+    public T mostFrequently() {
+        HashMap<T, Integer> map = new HashMap<>();
+        Node<T> curr = this.head;
+        Integer maxCount = null;
+        T max = null;
+
+        for (; curr != null; curr = curr.next ){
+            T key = curr.value;
+            if (map.containsKey(key)) {
+                map.put(key, map.get(key) + 1);
+            } else {
+                map.put(key, 1);
+            }
+        }
+
+        for (T key : map.keySet()){
+            if (maxCount == null) {
+                max = key;
+                maxCount = map.get(key);
+            }
+            Integer pretendent = map.get(key);
+            if (pretendent > maxCount) {
+                max = key;
+                maxCount = pretendent;
+            }
+        }
+
+        return max;
     }
 
     ArrayList<Node<T>> getAll()
     {
-        ArrayList<Node<T>> r = new ArrayList<Node<T>>();
+        ArrayList<Node<T>> r = new ArrayList<>();
         Node<T> node = head;
-        while(node != null)
+        for (;node != null;)
         {
             r.add(node);
             node = node.next;
