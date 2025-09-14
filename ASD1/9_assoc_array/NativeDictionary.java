@@ -38,6 +38,7 @@ class NativeDictionary<T>
         return - 1;
     }
 
+    // 9-3 isKey
     public boolean isKey(String key)
     {
         for (String slotKey : slots){
@@ -48,6 +49,7 @@ class NativeDictionary<T>
         return false;
     }
 
+    // 9-3 put
     public void put(String key, T value)
     {
         int index = hashFun(key);
@@ -57,6 +59,7 @@ class NativeDictionary<T>
         }
     }
 
+    // 9-3 get
     public T get(String key)
     {
         if (!isKey(key)) {
@@ -67,3 +70,5 @@ class NativeDictionary<T>
         return values[index];
     }
 }
+
+

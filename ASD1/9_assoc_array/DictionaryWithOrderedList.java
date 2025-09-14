@@ -1,6 +1,7 @@
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
+// 9-5*
 public class DictionaryWithOrderedList<T> {
     public int size;
     private Note<T>[] values;
@@ -8,6 +9,7 @@ public class DictionaryWithOrderedList<T> {
 
     public DictionaryWithOrderedList(int sz)
     {
+        size = sz;
         size = sz;
         values = new Note[size];
         count = 0;
