@@ -8,8 +8,7 @@
       <sourceFolder url="file://$MODULE_DIR$/5_queue " isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/6_queue" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/7_Ordered_List" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/8_hashTable" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/9_assoc_array" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/10_set" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/1_Linked_List" />
       <excludeFolder url="file://$MODULE_DIR$/for_server/1" />
     </content>
