@@ -4,11 +4,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.LinkedList;
 import java.util.List;
 
-
 // 10-3 Tests
 class PowerSetTest {
     @Test public void addValue(){
-        PowerSet<String> mySet = new PowerSet<>();
+        PowerSet mySet = new PowerSet();
 
         mySet.put("example");
 
@@ -16,7 +15,7 @@ class PowerSetTest {
     }
 
     @Test public void addExistValue(){
-        PowerSet<String> mySet = new PowerSet<>();
+        PowerSet mySet = new PowerSet();
 
         mySet.put("example");
         mySet.put("example");
@@ -25,7 +24,7 @@ class PowerSetTest {
     }
 
     @Test public void removeExistValue(){
-        PowerSet<String> mySet = new PowerSet<>();
+        PowerSet mySet = new PowerSet();
 
         mySet.put("example");
         mySet.remove("example");
@@ -34,8 +33,8 @@ class PowerSetTest {
     }
 
     @Test public void intersectionNull(){
-        PowerSet<String> mySet1 = new PowerSet<>();
-        PowerSet<String> mySet2 = new PowerSet<>();
+        PowerSet mySet1 = new PowerSet();
+        PowerSet mySet2 = new PowerSet();
 
         mySet1.put("1");
         mySet1.put("2");
@@ -48,8 +47,8 @@ class PowerSetTest {
     }
 
     @Test public void intersection(){
-        PowerSet<String> mySet1 = new PowerSet<>();
-        PowerSet<String> mySet2 = new PowerSet<>();
+        PowerSet mySet1 = new PowerSet();
+        PowerSet mySet2 = new PowerSet();
 
         mySet1.put("1");
         mySet1.put("2");
@@ -62,8 +61,8 @@ class PowerSetTest {
     }
 
     @Test public void union(){
-        PowerSet<String> mySet1 = new PowerSet<>();
-        PowerSet<String> mySet2 = new PowerSet<>();
+        PowerSet mySet1 = new PowerSet();
+        PowerSet mySet2 = new PowerSet();
 
         mySet1.put("1");
         mySet1.put("2");
@@ -77,8 +76,8 @@ class PowerSetTest {
     }
 
     @Test public void unionEmtySet(){
-        PowerSet<String> mySet1 = new PowerSet<>();
-        PowerSet<String> mySet2 = new PowerSet<>();
+        PowerSet mySet1 = new PowerSet();
+        PowerSet mySet2 = new PowerSet();
 
         mySet1.put("1");
         mySet1.put("2");
@@ -88,8 +87,8 @@ class PowerSetTest {
     }
 
     @Test public void differenceEmpty(){
-        PowerSet<String> mySet1 = new PowerSet<>();
-        PowerSet<String> mySet2 = new PowerSet<>();
+        PowerSet mySet1 = new PowerSet();
+        PowerSet mySet2 = new PowerSet();
 
         mySet1.put("1");
         mySet1.put("2");
@@ -102,8 +101,8 @@ class PowerSetTest {
     }
 
     @Test public void difference(){
-        PowerSet<String> mySet1 = new PowerSet<>();
-        PowerSet<String> mySet2 = new PowerSet<>();
+        PowerSet mySet1 = new PowerSet();
+        PowerSet mySet2 = new PowerSet();
 
         mySet1.put("1");
         mySet1.put("2");
@@ -115,8 +114,8 @@ class PowerSetTest {
     }
 
     @Test public void isSubsetAll(){
-        PowerSet<String> mySet1 = new PowerSet<>();
-        PowerSet<String> mySet2 = new PowerSet<>();
+        PowerSet mySet1 = new PowerSet();
+        PowerSet mySet2 = new PowerSet();
 
         mySet1.put("1");
         mySet1.put("2");
@@ -129,8 +128,8 @@ class PowerSetTest {
     }
 
     @Test public void isSubsetPart(){
-        PowerSet<String> mySet1 = new PowerSet<>();
-        PowerSet<String> mySet2 = new PowerSet<>();
+        PowerSet mySet1 = new PowerSet();
+        PowerSet mySet2 = new PowerSet();
 
         mySet1.put("1");
         mySet1.put("2");
@@ -142,8 +141,8 @@ class PowerSetTest {
     }
 
     @Test public void isSubsetWrong(){
-        PowerSet<String> mySet1 = new PowerSet<>();
-        PowerSet<String> mySet2 = new PowerSet<>();
+        PowerSet mySet1 = new PowerSet();
+        PowerSet mySet2 = new PowerSet();
 
         mySet1.put("1");
         mySet1.put("2");
@@ -156,8 +155,8 @@ class PowerSetTest {
     }
 
     @Test public void notEquals(){
-        PowerSet<String> mySet1 = new PowerSet<>();
-        PowerSet<String> mySet2 = new PowerSet<>();
+        PowerSet mySet1 = new PowerSet();
+        PowerSet mySet2 = new PowerSet();
 
         mySet1.put("1");
         mySet1.put("2");
@@ -170,8 +169,8 @@ class PowerSetTest {
     }
 
     @Test public void equals(){
-        PowerSet<String> mySet1 = new PowerSet<>();
-        PowerSet<String> mySet2 = new PowerSet<>();
+        PowerSet mySet1 = new PowerSet();
+        PowerSet mySet2 = new PowerSet();
 
         mySet1.put("1");
         mySet1.put("2");
@@ -185,8 +184,8 @@ class PowerSetTest {
 
     @Test void quickPerformanceTest() {
         int testSize = 10000;
-        PowerSet<String> mySet1 = new PowerSet<>();
-        PowerSet<String> mySet2 = new PowerSet<>();
+        PowerSet mySet1 = new PowerSet();
+        PowerSet mySet2 = new PowerSet();
         for (int i = 0; i < testSize; i++) {
             mySet1.put("v1_" + i);
             mySet2.put("v2_" + i);
@@ -208,8 +207,8 @@ class PowerSetTest {
     }
 
     @Test void cartesianProductTest() {
-        PowerSet<String> mySet1 = new PowerSet<>();
-        PowerSet<String> mySet2 = new PowerSet<>();
+        PowerSet mySet1 = new PowerSet();
+        PowerSet mySet2 = new PowerSet();
 
         mySet1.put("1");
         mySet1.put("2");
@@ -222,13 +221,12 @@ class PowerSetTest {
     }
 }
 
-
 class AdditionalPowerSetTest {
 
     @Test void cartesianProductTest() {
-        PowerSet<String> mySet1 = new PowerSet<>();
-        PowerSet<String> mySet2 = new PowerSet<>();
-        PowerSet<String> mySet3 = new PowerSet<>();
+        PowerSet mySet1 = new PowerSet();
+        PowerSet mySet2 = new PowerSet();
+        PowerSet mySet3 = new PowerSet();
         AdditionalPowerSet additionalPS = new AdditionalPowerSet();
         mySet1.put("1");
         mySet1.put("2");
