@@ -1,12 +1,12 @@
 import java.util.List;
 
 public class AdditionalPowerSet {
-    public PowerSet intersectionManySets(List<PowerSet<String>> list){
+    public PowerSet intersectionManySets(List<PowerSet> list){
         if (list.size() == 0) return null;
         PowerSet result = new PowerSet();
         PowerSet main = list.get(0);
 
-        for (String el: main.store.slots) {
+        for (String el: main.store) {
             if (el == null) continue;
 
             boolean everywhere = true;

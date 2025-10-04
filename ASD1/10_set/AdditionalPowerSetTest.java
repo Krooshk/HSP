@@ -8,9 +8,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class AdditionalPowerSetTest {
 
     @Test void cartesianProductTest() {
-        PowerSet<String> mySet1 = new PowerSet<>();
-        PowerSet<String> mySet2 = new PowerSet<>();
-        PowerSet<String> mySet3 = new PowerSet<>();
+        PowerSet mySet1 = new PowerSet();
+        PowerSet mySet2 = new PowerSet();
+        PowerSet mySet3 = new PowerSet();
         AdditionalPowerSet additionalPS = new AdditionalPowerSet();
         mySet1.put("1");
         mySet1.put("2");

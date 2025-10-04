@@ -1,49 +1,38 @@
 import java.util.*;
 
 // 10-1,2 PowerSet & methods
-public class PowerSet<T>
+public class PowerSet
 {
-    HashTable<T> store;
-    private int _count;
+    public ArrayList<String> store;
 
     public PowerSet()
     {
-        _count = 0;
-        store = new HashTable(20000, 3);
+        store = new ArrayList<>();
     }
 
     public int size()
     {
-        return _count;
+        return store.size();
     }
 
     public void put(String value)
     {
-        if (store.find(value) >= 0) return;
-        store.put(value);
-        _count++;
-
+        if (!get(value)) {
+            store.add(value);
+        }
     }
 
     public boolean get(String value)
     {
-        return store.find(value) >= 0;
+        return store.contains(value);
     }
 
-    public boolean remove(String value)
-    {
-        int pos = store.find(value);
-        if (pos < 0) return false;
-        store.slots[pos] = null;
-        _count--;
-        return true;
-    }
+    public boolean remove(String value) { return store.remove(value);}
 
     public PowerSet intersection(PowerSet set2)
     {
         PowerSet result = new PowerSet();
-        for (String el: store.slots) {
-            if (el == null) continue;
+        for (String el: store) {
             if (set2.get(el)) {
                 result.put(el);
             }
@@ -56,12 +45,10 @@ public class PowerSet<T>
     public PowerSet union(PowerSet set2)
     {
         PowerSet result = new PowerSet();
-        for (String el: store.slots) {
-            if (el == null) continue;
+        for (String el: store) {
             result.put(el);
         }
-        for (String elem: set2.store.slots) {
-            if (elem == null) continue;
+        for (String elem: set2.store) {
             if (!result.get(elem)){
                 result.put(elem);
             }
@@ -75,8 +62,7 @@ public class PowerSet<T>
     public PowerSet difference(PowerSet set2)
     {
         PowerSet result = new PowerSet();
-        for (String el: store.slots) {
-            if (el == null) continue;
+        for (String el: store) {
             if (!set2.get(el)) {
                 result.put(el);
             }
@@ -88,9 +74,8 @@ public class PowerSet<T>
 
     public boolean isSubset(PowerSet set2)
     {
-        for (String el: set2.store.slots) {
-            if (el == null) continue;
-            if (!this.get(el)) {
+        for (String el: set2.store) {
+            if (!get(el)) {
                 return false;
             }
         }
@@ -99,12 +84,10 @@ public class PowerSet<T>
     }
 
     // 10-4 Cartesian Product
-    public PowerSet<T> cartesianMultiply(PowerSet set2){
+    public PowerSet cartesianMultiply(PowerSet set2){
         PowerSet result = new PowerSet();
-        for (String el: store.slots) {
-            if (el == null) continue;
-            for (String innerElem: set2.store.slots) {
-                if (innerElem == null) continue;
+        for (String el: store) {
+            for (String innerElem: set2.store) {
                 result.put(el + "|" + innerElem);
             }
         }
@@ -114,14 +97,13 @@ public class PowerSet<T>
         return result;
     }
 
-    public boolean equals(PowerSet<T> set2)
+    public boolean equals(PowerSet set2)
     {
         if (set2.size() != this.size()){
             return false;
         }
 
-        for (String el: store.slots) {
-            if (el == null) continue;
+        for (String el: store) {
             if (!set2.get(el)) {
                 return false;
             }
@@ -132,89 +114,4 @@ public class PowerSet<T>
 
 }
 
-class HashTable<T>
-{
-    public int size;
-    public int step;
-    public String [] slots;
-
-    public HashTable(int sz, int stp)
-    {
-        size = sz;
-        step = stp;
-        slots = new String[size];
-        for(int i=0; i<size; i++) slots[i] = null;
-    }
-
-    public int hashFun(String value)
-    {
-        int sum = 0;
-        for (int i = 0; i < value.length(); i++) {
-            sum += (int) value.charAt(i);
-        }
-
-        return sum % size;
-    }
-
-    public int seekSlot(String value)
-    {
-        int count = step;
-        int index = hashFun(value);
-        if (slots[index] == null) {
-            return index;
-        }
-        for (;count >= 1;) {
-            for (int i = 0; i < size; i++) {
-                int pretendent = index + i * step;
-                int position = pretendent;
-                if (pretendent >= size) {
-                    position = pretendent % size;
-                    if (position >= index) break;
-                }
-                if (slots[position] == null) {
-                    return position;
-                }
-            }
-            count--;
-        }
-
-        return -1;
-    }
-
-    public int put(String value)
-    {
-        int place = seekSlot(value);
-        if (place >= 0){
-            slots[place] = value;
-            return place;
-        }
-
-        return -1;
-    }
-
-    public int find(String value)
-    {
-        int count = step;
-        int index = hashFun(value);
-        if (value == slots[index]) {
-            return index;
-        }
-        for (;count >= 1;) {
-            for (int i = 0; i < size; i++) {
-                int pretendent = index + i * step;
-                int position = pretendent;
-                if (pretendent >= size) {
-                    position = pretendent % size;
-                    if (position >= index) break;
-                }
-                if (slots[position] == value) {
-                    return position;
-                }
-            }
-            count--;
-        }
-
-        return -1;
-    }
-}
 
