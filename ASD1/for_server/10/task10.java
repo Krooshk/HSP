@@ -27,7 +27,9 @@ public class PowerSet
         return store.contains(value);
     }
 
-    public boolean remove(String value) { return store.remove(value);}
+    public boolean remove(String value) { 
+        return store.remove(value);
+    }
 
     public PowerSet intersection(PowerSet set2)
     {
