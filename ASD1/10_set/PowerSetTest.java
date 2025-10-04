@@ -41,7 +41,7 @@ class PowerSetTest {
         mySet2.put("5");
         mySet2.put("6");
 
-        assertEquals(mySet1.intersection(mySet2), null);
+        assertEquals(mySet1.intersection(mySet2).size(), 0);
     }
 
     @Test public void intersection(){
@@ -95,7 +95,7 @@ class PowerSetTest {
         mySet2.put("2");
         mySet2.put("3");
 
-        assertEquals(mySet1.difference(mySet2), null);
+        assertEquals(mySet1.difference(mySet2).size(), 0);
     }
 
     @Test public void difference(){

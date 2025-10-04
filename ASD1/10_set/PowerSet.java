@@ -38,7 +38,6 @@ public class PowerSet
             }
         }
 
-        if (result.size() == 0) return null;
         return result;
     }
 
@@ -54,8 +53,6 @@ public class PowerSet
             }
         }
 
-        if (result.size() == 0) return null;
-
         return result;
     }
 
@@ -68,7 +65,6 @@ public class PowerSet
             }
         }
 
-        if (result.size() == 0) return null;
         return result;
     }
 
@@ -91,8 +87,6 @@ public class PowerSet
                 result.put(el + "|" + innerElem);
             }
         }
-
-        if (result.size() == 0) return null;
 
         return result;
     }

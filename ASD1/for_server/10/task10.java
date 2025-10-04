@@ -38,7 +38,6 @@ public class PowerSet
             }
         }
 
-        if (result.size() == 0) return null;
         return result;
     }
 
@@ -54,8 +53,6 @@ public class PowerSet
             }
         }
 
-        if (result.size() == 0) return null;
-
         return result;
     }
 
@@ -68,7 +65,6 @@ public class PowerSet
             }
         }
 
-        if (result.size() == 0) return null;
         return result;
     }
 
@@ -92,8 +88,6 @@ public class PowerSet
             }
         }
 
-        if (result.size() == 0) return null;
-
         return result;
     }
 
@@ -113,4 +107,5 @@ public class PowerSet
     }
 
 }
+
 
