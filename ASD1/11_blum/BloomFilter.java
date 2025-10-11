@@ -63,3 +63,4 @@ public class BloomFilter
         return hasBit(index1) && hasBit(index2);
     }
 }
+
