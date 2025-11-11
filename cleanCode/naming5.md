@@ -1,8 +1,8 @@
 ## 3.1. 
 AdditionalLinkedList2 - AdvancedToolsLinkedList // Добавочные продвинутые методы для работы со связным списком
 DynArrayBank - DynArrayWithBankAmortApproach // Динамический массив с банковским амортизационным методом подсчета сложности  
-AdditionalStack - ExtendedStack // Стек с расширенным набором методов
-AdditionalBlumFilter - ToolsForBlumFilters // Класс для работы с Блум фильтрами    
+AdditionalStack - ExtendedStack // Стек с расширенным набором методов   
+AdditionalBlumFilter - ToolsForBlumFilters // Класс для работы с Блум фильтрами      
 DdosCheck - HashTableSustainableDDOS // Хэш-таблица устойчивая к DDOS атакам  
 ## 3.2. 
 degree - pow // Возвести число в степень  
