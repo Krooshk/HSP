@@ -3,11 +3,12 @@ import java.util.*;
 public class Postfix {
 
     private Postfix(){}
-
+    final static String DIVIDER = " ";
+    final static String EQUAL_STR = "=";
     public static Integer postfixCount(String str) {
         Stack<String> s1 = new Stack<String>();
         Stack<String> s2 = new Stack<String>();
-        String[] arr = str.split(" ");
+        String[] arr = str.split(DIVIDER);
         HashSet<String> operations = new HashSet<String>(Arrays.asList("+", "-", "*"));
 
         for (int i = arr.length - 1; i >= 0; i--){
@@ -15,7 +16,7 @@ public class Postfix {
         }
 
         for (String curr = s1.pop(); curr != null; curr = s1.pop()){
-            if (curr.equals("=")) {
+            if (curr.equals(EQUAL_STR)) {
                 return Integer.valueOf(s2.pop());
             }
             if (operations.contains(curr)) {

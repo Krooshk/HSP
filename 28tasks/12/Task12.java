@@ -2,11 +2,10 @@ import java.util.*;
 
 public class Task12
 {
+    final static String MAJOR_WINNER = "majority winner";
+    final static String MINOR_WINNER = "minority winner";
+    final static String NO_WINNER = "no winner";
     public static String MassVote(int N, int [] Votes) {
-        String MAJOR_WINNER = "majority winner";
-        String MINOR_WINNER = "minority winner";
-        String NO_WINNER = "no winner";
-
         if (N == 0) return NO_WINNER;
 
         int indexMax = 0;

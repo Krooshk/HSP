@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Task20
 {
+    final static String ERROR_MESSAGE = "Not such command";
     static String current = "";
     static Stack<String> stackUndo = new Stack<>();
     static Stack<String> stackRedo = new Stack<>();
@@ -10,7 +11,7 @@ public class Task20
         try {
             int commandNumber = Integer.parseInt(command.substring(0, 1));
             if (commandNumber < 1 || commandNumber > 5) {
-                throw new Exception("Not such command");
+                throw new Exception(ERROR_MESSAGE);
             }
 
             if (commandNumber == 1) {

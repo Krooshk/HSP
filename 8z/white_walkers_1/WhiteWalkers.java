@@ -2,9 +2,9 @@ import java.util.*;
 
 public class WhiteWalkers
 {
+    final static Character[] DIGITS = new Character[]{ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
     public static boolean white_walkers(String village){
-        Character[] digits = new Character[]{ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-        List<Character> digitsList = Arrays.asList(digits);
+        List<Character> digitsList = Arrays.asList(DIGITS);
         Integer left = null;
         int currentWalker = 0;
         int amountWalker = 0;

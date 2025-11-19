@@ -1,8 +1,9 @@
 import java.util.*;
 
 public class Cyberpunk4 {
+    final int SIZE_FIBERS = 8192;
     public static int artificial_muscle_fibers(int[] arr){
-        byte[] store = new byte[8192];
+        byte[] store = new byte[SIZE_FIBERS];
 
         for (int el: arr) {
             getStateOfNum(store, el);

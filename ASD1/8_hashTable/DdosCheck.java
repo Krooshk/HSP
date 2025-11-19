@@ -3,6 +3,7 @@ public class DdosCheck {
     public int step;
     boolean withSalt;
     public String [] slots;
+    final statc int SALT_NUMBER_ONE = 42;
 
     public DdosCheck(int sz, int stp, boolean ws)
     {
@@ -27,9 +28,7 @@ public class DdosCheck {
     }
 
     public String addSalt(String value){
-        int magicNumber = 42;
-
-        return String.valueOf(magicNumber - value.length() + 13);
+        return String.valueOf(SALT_NUMBER_ONE - value.length() + 13);
     }
 
     public int seekSlot(String value)

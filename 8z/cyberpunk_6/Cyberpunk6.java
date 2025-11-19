@@ -1,8 +1,9 @@
 import java.util.*;
 
 public class Cyberpunk6 {
+    final int ARRAY_LENGTH = 3;
     public static int[] TRC_sort(int[] trc) {
-        int[] countDigits = new int[3];
+        int[] countDigits = new int[ARRAY_LENGTH];
         int len = trc.length;
         int[] res = new int[len];
         int pos = 0;

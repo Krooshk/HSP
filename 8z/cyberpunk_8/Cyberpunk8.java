@@ -1,6 +1,10 @@
 import java.util.*;
 
 public class Cyberpunk8 {
+    final String DIRECTION_UP = "up";
+    final String DIRECTION_DOWN = "down";
+    final String DIRECTION_LEFT = "left";
+    final String DIRECTION_RIGHT = "right";
     public static String army_communication_matrix(int n, int [][] matrix) {
         HashMap<String, Integer> map = new HashMap<>();
 
@@ -15,34 +19,34 @@ public class Cyberpunk8 {
 
             for(int i = 1; i < iteration; i++) {
                 if (isRightDirection && curr_x + size == n){
-                    int prevStrip = stripSum(size, "up", curr_x, curr_y, matrix);
+                    int prevStrip = stripSum(size, DIRECTION_UP, curr_x, curr_y, matrix);
                     curr_y++;
-                    int currStrip = stripSum(size, "down", curr_x, curr_y, matrix);
+                    int currStrip = stripSum(size, DIRECTION_DOWN, curr_x, curr_y, matrix);
                     currSum = currSum - prevStrip + currStrip;
                     setValueInMap(size, curr_x, curr_y, currSum, map);
 
                     isRightDirection = false;
                     continue;
                 } else if (isRightDirection){
-                    int prevStrip = stripSum(size, "left", curr_x, curr_y, matrix);
+                    int prevStrip = stripSum(size, DIRECTION_LEFT, curr_x, curr_y, matrix);
                     curr_x++;
-                    int currStrip = stripSum(size, "right", curr_x, curr_y, matrix);
+                    int currStrip = stripSum(size, DIRECTION_RIGHT, curr_x, curr_y, matrix);
                     currSum = currSum - prevStrip + currStrip;
                     setValueInMap(size, curr_x, curr_y, currSum, map);
                 }
 
                 if (!isRightDirection && curr_x == 0) {
-                    int prevStrip = stripSum(size, "up", curr_x, curr_y, matrix);
+                    int prevStrip = stripSum(size, DIRECTION_UP, curr_x, curr_y, matrix);
                     curr_y++;
-                    int currStrip = stripSum(size, "down", curr_x, curr_y, matrix);
+                    int currStrip = stripSum(size, DIRECTION_DOWN, curr_x, curr_y, matrix);
                     currSum = currSum - prevStrip + currStrip;
                     setValueInMap(size, curr_x, curr_y, currSum, map);
 
                     isRightDirection = true;
                 } else if (!isRightDirection) {
-                    int prevStrip = stripSum(size, "right", curr_x, curr_y, matrix);
+                    int prevStrip = stripSum(size, DIRECTION_RIGHT, curr_x, curr_y, matrix);
                     curr_x--;
-                    int currStrip = stripSum(size, "left", curr_x, curr_y, matrix);
+                    int currStrip = stripSum(size, DIRECTION_LEFT, curr_x, curr_y, matrix);
                     currSum = currSum - prevStrip + currStrip;
                     setValueInMap(size, curr_x, curr_y, currSum, map);
                 }
@@ -79,25 +83,25 @@ public class Cyberpunk8 {
     public static Integer stripSum(int size, String place, int x, int y, int[][] matrix) {
         int sum = 0;
         switch (place) {
-            case "right": {
+            case DIRECTION_RIGHT: {
                 for (int i = y; i < y + size; i++){
                     sum += matrix[i][x + size - 1];
                 }
                 return sum;
             }
-            case "left": {
+            case DIRECTION_LEFT: {
                 for (int i = y; i < y + size; i++){
                     sum += matrix[i][x];
                 }
                 return sum;
             }
-            case "up": {
+            case DIRECTION_UP: {
                 for (int i = x; i < x + size; i++){
                     sum += matrix[y][i];
                 }
                 return sum;
             }
-            case "down":{
+            case DIRECTION_DOWN:{
                 for (int i = x; i < x + size; i++){
                     sum += matrix[y + size - 1][i];
                 }
