@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Task3
 {
+    final static String DIVIDER = "|";
     public static int ConquestCampaign(int N, int M, int L, int [] battalion)
     {
         HashMap<String, Boolean> map = new HashMap<>();
@@ -39,7 +40,7 @@ public class Task3
             return;
         }
         int[] coordArray = new int[] { x, y };
-        String coord = x+ "|" + y;
+        String coord = x + DIVIDER + y;
         if (map.get(coord) == null) {
             queue.add(coordArray);
             map.put(coord, true);

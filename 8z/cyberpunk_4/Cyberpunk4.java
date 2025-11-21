@@ -13,6 +13,7 @@ public class Cyberpunk4 {
     }
 
     public static void getStateOfNum(byte[] store, int num){
+
         int pos = num / 4;
         byte b = store[pos];
         int mod = num % 4;

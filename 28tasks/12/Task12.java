@@ -24,6 +24,10 @@ public class Task12
             }
         }
 
+        if (sumVotes == 0) {
+            throw new ArithmeticException();
+        }
+
         double percent = Votes[indexMax] * 1.0 / sumVotes;
 
         if (people > 1) {

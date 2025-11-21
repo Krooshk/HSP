@@ -2,6 +2,8 @@ import java.util.*;
 
 public class Task23
 {
+    static final Character SYMBOL_PLUS = '+';
+    static final Character SYMBOL_DOT = '.';
     public static String [] TreeOfLife(int H, int W, int N, String [] tree) {
         int[][] arr = new int[H][W];
         String[] result = new String[H];
@@ -10,10 +12,10 @@ public class Task23
 
         for (int i = 0; i < H; i++){
             for ( int j = 0; j < W; j++){
-                if (tree[i].charAt(j) == '+'){
+                if (tree[i].charAt(j) == SYMBOL_PLUS){
                     arr[i][j] = 1;
                 }
-                if (tree[i].charAt(j) == '.'){
+                if (tree[i].charAt(j) == SYMBOL_DOT){
                     arr[i][j] = 0;
                 }
             }

@@ -84,7 +84,8 @@ public class Task20
     }
 
     public static String undo(){
-        if (stackUndo.size() > 0) {
+        boolean isUndoStackEmpty = stackUndo.size() == 0;
+        if (!isUndoStackEmpty) {
             String str = stackUndo.pop();
             stackRedo.push(current);
             isLastUndo = true;

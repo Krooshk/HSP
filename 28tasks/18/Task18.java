@@ -26,7 +26,8 @@ public class Task18
         Arrays.sort(copy);
 
         for (int i = 0; i < arr.length; i++){
-            if (arr[i] != copy[i]) {
+            boolean isNotEqualElems = arr[i] != copy[i];
+            if (isNotEqualElems) {
                 return false;
             }
         }

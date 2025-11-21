@@ -18,7 +18,8 @@ public class Cyberpunk8 {
             setValueInMap(size, curr_x, curr_y, currSum, map);
 
             for(int i = 1; i < iteration; i++) {
-                if (isRightDirection && curr_x + size == n){
+                boolean isReachRightKontur = curr_x + size == n;
+                if (isRightDirection && isReachRightKontur){
                     int prevStrip = stripSum(size, DIRECTION_UP, curr_x, curr_y, matrix);
                     curr_y++;
                     int currStrip = stripSum(size, DIRECTION_DOWN, curr_x, curr_y, matrix);

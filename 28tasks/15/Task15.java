@@ -30,7 +30,8 @@ public class Task15
     public static boolean checkPos(int startH, int startW, String[] arr1, String[] arr2 ){
         for (int i = 0; i < arr2.length; i++){
             for(int j = 0; j < arr2[0].length(); j++){
-                if (arr2[i].charAt(j) != arr1[startH + i].charAt(startW + j)) {
+                boolean isCrossed = arr2[i].charAt(j) == arr1[startH + i].charAt(startW + j);
+                if (!isCrossed) {
                     return false;
                 }
             }

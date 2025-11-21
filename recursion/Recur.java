@@ -36,7 +36,8 @@ class Recur {
     public static boolean helperIsPalindrome(String str, int offset) {
         int end = str.length() - 1;
 
-        if (offset >= str.length() / 2) {
+        boolean isOvercomeMiddleOfStr = offset >= str.length() / 2;
+        if (isOvercomeMiddleOfStr) {
             return true;
         }
 
