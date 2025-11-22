@@ -58,7 +58,8 @@ class Recur {
         }
 
         int currentNum = list.get(index);
-        if (currentNum % 2 == 0) {
+        boolean isEven = currentNum % 2 == 0;
+        if (isEven) {
             System.out.println(currentNum);
         }
 

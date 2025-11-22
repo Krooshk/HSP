@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c057242b-99cb-433c-ad85-722f01589bc0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/28tasks/12/Task12.java" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/12/Task12.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/28tasks/15/Task15.java" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/15/Task15.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/28tasks/18/Task18.java" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/18/Task18.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/28tasks/20/Task20.java" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/20/Task20.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/28tasks/23/Task23.java" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/23/Task23.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/28tasks/3/Task3.java" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/3/Task3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/8z/cyberpunk_4/Cyberpunk4.java" beforeDir="false" afterPath="$PROJECT_DIR$/8z/cyberpunk_4/Cyberpunk4.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/8z/cyberpunk_8/Cyberpunk8.java" beforeDir="false" afterPath="$PROJECT_DIR$/8z/cyberpunk_8/Cyberpunk8.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recursion/Recur.java" beforeDir="false" afterPath="$PROJECT_DIR$/recursion/Recur.java" afterDir="false" />
-    </list>
+    <list default="true" id="c057242b-99cb-433c-ad85-722f01589bc0" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

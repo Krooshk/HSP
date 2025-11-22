@@ -71,17 +71,18 @@ boolean isOvercomeMiddleOfStr = offset >= str.length() / 2;
 ```java
 //...10
 final static String DIVIDER = " ";
-// ... Разделитель для строк
+// ... Вынес разделитель для строк
 ```
 
 ```java
 //...11
 final static String EQUAL_STR = "=";
-// ... Строка с равно, вдруг будет пример с приближенным равно
+// ... Вынес cтроку со знаком "равно"
 ```
 
 ```java
 //...12
-final statc int SALT_NUMBER_ONE = 42;
-// ... Случайное число для соли
+boolean isEven = currentNum % 2 == 0;
+if (isEven) {
+// ... Вынес выражение в логическую переменную
 ```
