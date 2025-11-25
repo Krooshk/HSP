@@ -37,6 +37,8 @@ public class Cyberpunk4 {
 
         b = setBit(b, firstPos);
         store[pos] = b;
+
+        assert pos >= 0;
     }
 
     public static boolean getBit(byte b, int bitPosition) {

@@ -6,7 +6,6 @@ public class Task22
         HashMap<Character, Integer> map = new HashMap<>();
         HashMap<Integer, Integer> amount = new HashMap<>();
         int sign = 0;
-        int result = 0;
 
         for (int i = 0; i < s.length(); i++){
             Character ch = s.charAt(i);
@@ -37,6 +36,7 @@ public class Task22
 
         int moreTwo = 0;
 
+        int result = 0;
         for (Integer key : amount.keySet()) {
             if (amount.get(key) >= 2) {
                 moreTwo++;

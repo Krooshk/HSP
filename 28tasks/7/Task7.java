@@ -12,7 +12,7 @@ public class Task7
         ArrayList<String> list = new ArrayList<>();
         String copyStr = s;
 
-        while(copyStr.length() > 0) {
+        for(;copyStr.length() > 0;) {
             if (copyStr.charAt(0) == ' ') {
                 copyStr = copyStr.substring(1);
             }

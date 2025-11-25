@@ -19,6 +19,8 @@ public class Level2
             timeSpent = oksana[i + 1];
         }
 
+        assert timeSpent >= 0;
+
         return res;
     }
 }

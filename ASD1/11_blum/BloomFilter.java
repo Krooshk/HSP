@@ -4,11 +4,12 @@ public class BloomFilter
 {
     public int filter_len;
     public int bitArray;
+    final int INITIAL_VALUE = 0;
 
     public BloomFilter(int f_len)
     {
         filter_len = f_len;
-        bitArray = 0;
+        bitArray = INITIAL_VALUE;
     }
 
     public int hash1(String str1)

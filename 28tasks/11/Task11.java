@@ -21,8 +21,6 @@ public class Task11
         int[] arr1 = new int[len1];
         int[] arr2 = new int[len2];
 
-        int debt = 0;
-
         for (int u = 0; u < len1; u++){
             arr1[u] = getNum(s1, u);
         }
@@ -31,6 +29,7 @@ public class Task11
             arr2[j] = getNum(s2, j);
         }
 
+        int debt = 0;
         for (int i = 0; i < len1; i++) {
             int secondElem = 0;
             if (len2 - 1 - i >= 0) secondElem = arr2[len2 - 1 - i];

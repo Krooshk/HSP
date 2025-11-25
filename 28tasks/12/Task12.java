@@ -28,12 +28,11 @@ public class Task12
             throw new ArithmeticException();
         }
 
-        double percent = Votes[indexMax] * 1.0 / sumVotes;
-
         if (people > 1) {
             return NO_WINNER;
         }
 
+        double percent = Votes[indexMax] * 1.0 / sumVotes;
         if (percent > 0.5) {
             return  MAJOR_WINNER + " " + (indexMax + 1);
         }

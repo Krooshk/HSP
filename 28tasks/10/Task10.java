@@ -2,6 +2,7 @@ import java.util.HashMap;
 
 public class Task10
 {
+    final static int DEFAULT_VALUE = 23;
     public static int PrintingCosts(String Line) {
         int res = 0;
         String tonerValue = "!  9\n" +
@@ -101,7 +102,6 @@ public class Task10
 
         String[] arr = tonerValue.split("\n");
         HashMap<String, Integer> map = new HashMap<>();
-        int DEFAULT_VALUE = 23;
 
         for (int i = 0; i < arr.length; i++){
             String[] charValueArr = arr[i].split("  ");

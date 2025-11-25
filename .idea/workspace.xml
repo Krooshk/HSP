@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c057242b-99cb-433c-ad85-722f01589bc0" name="Changes" comment="" />
+    <list default="true" id="c057242b-99cb-433c-ad85-722f01589bc0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/Task1.java" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/1/Task1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/10/Task10.java" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/10/Task10.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/11/Task11.java" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/11/Task11.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/12/Task12.java" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/12/Task12.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/2/Level2.java" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/2/Level2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/20/Task20.java" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/20/Task20.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/22/Task22.java" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/22/Task22.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/23/Task23.java" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/23/Task23.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/26/Task26.java" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/26/Task26.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/3/Task3.java" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/3/Task3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/7/Task7.java" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/7/Task7.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/8z/cyberpunk_4/Cyberpunk4.java" beforeDir="false" afterPath="$PROJECT_DIR$/8z/cyberpunk_4/Cyberpunk4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASD1/1_Linked_List/SumTwoList.java" beforeDir="false" afterPath="$PROJECT_DIR$/ASD1/1_Linked_List/SumTwoList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASD1/8_hashTable/DdosCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/ASD1/8_hashTable/DdosCheck.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

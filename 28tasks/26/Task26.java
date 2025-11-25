@@ -11,8 +11,6 @@ public class Task26
 
         for (int i = 0; i < village.length(); i++){
             Character ch = village.charAt(i);
-            boolean isNumber = digitsList.contains(ch);
-            boolean isWalker = village.charAt(i) == '=';
             boolean firstMeetNumber = isNumber && left == null;
             int numericValue = Character.getNumericValue(ch);
 
@@ -22,10 +20,12 @@ public class Task26
                 continue;
             }
 
+            boolean isWalker = village.charAt(i) == '=';
             if (isWalker) {
                 currentWalker++;
             }
 
+            boolean isNumber = digitsList.contains(ch);
             if (isNumber && (left + numericValue != 10)) {
                 currentWalker = 0;
                 left = numericValue;

@@ -9,6 +9,8 @@ public class Task1
             rank = i;
         }
 
+        assert factorial >= 1;
+
         double doubleRes = factorial / (rank);
 
         return (int) doubleRes;

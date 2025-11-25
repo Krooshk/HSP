@@ -33,11 +33,12 @@ public class DdosCheck {
 
     public int seekSlot(String value)
     {
-        int count = step;
         int index = hashFun(value);
         if (slots[index] == null) {
             return index;
         }
+
+        int count = step;
         for (;count >= 1;) {
             for (int i = 0; i < size; i++) {
                 int pretendent = index + i * step;

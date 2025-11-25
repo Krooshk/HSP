@@ -15,7 +15,7 @@ public class Task3
             handlePoint(battalion[2 * i], battalion[2 * i + 1], map, queue, N, M);
         }
 
-        while (map.size() != size) {
+        for (; map.size() != size; ) {
             sizeQueue = queue.size();
             days++;
 

@@ -8,8 +8,6 @@ public class Task23
         int[][] arr = new int[H][W];
         String[] result = new String[H];
 
-        boolean isGrowth = true;
-
         for (int i = 0; i < H; i++){
             for ( int j = 0; j < W; j++){
                 if (tree[i].charAt(j) == SYMBOL_PLUS){
@@ -21,6 +19,7 @@ public class Task23
             }
         }
 
+        boolean isGrowth = true;
         for (int k = 0; k < N; k++) {
             if (isGrowth) {
                 grow(H, W, arr, true);

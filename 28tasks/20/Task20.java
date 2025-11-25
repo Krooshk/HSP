@@ -35,8 +35,11 @@ public class Task20
             }
 
         } catch (Exception e) {
+            commandNumber = -1;
             return "";
         }
+        commandNumber = -1;
+
 
         return "";
     }
