@@ -38,7 +38,7 @@ public class Task18
     public static int[] swap(int[] arr) {
         int amountSwap = countSwap(arr);
 
-        for (int i = 0; i < amountSwap; i++) {
+        for (int i = 0; i < countSwap(arr); i++) {
             int temp = arr[0];
             arr[0] = arr[1];
             arr[1] = arr[2];

@@ -33,9 +33,8 @@ public class AdditionalStack {
 
         public void push(int val)
         {
-            boolean isEmptyMinStack = minStack.size() == 0;
             Integer minElem = minStack.peek();
-            if (isEmptyMinStack || minElem >= val) {
+            if (minStack.size() == 0 || minElem >= val) {
                 minStack.push(val);
             }
             average +=  val;

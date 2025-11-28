@@ -24,10 +24,8 @@ public class Task27
         if (finish == null) {
             finish = N - 1;
         }
-
-        int length = finish - start + 1;
-
-        if (length >= 2) {
+        
+        if (finish - start + 1 >= 2) {
             for (int i = 0; i < length / 2; i++){
                 int temp = copyOrder[finish  - i];
                 copyOrder[finish - i] = copyOrder[start + i];

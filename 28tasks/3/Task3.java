@@ -6,7 +6,6 @@ public class Task3
     public static int ConquestCampaign(int N, int M, int L, int [] battalion)
     {
         HashMap<String, Boolean> map = new HashMap<>();
-        int size = N * M;
         int days = 1;
         int sizeQueue;
         Queue<int []> queue = new LinkedList<>();
@@ -15,7 +14,7 @@ public class Task3
             handlePoint(battalion[2 * i], battalion[2 * i + 1], map, queue, N, M);
         }
 
-        for (; map.size() != size; ) {
+        for (; map.size() != N * M; ) {
             sizeQueue = queue.size();
             days++;
 

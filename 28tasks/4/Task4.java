@@ -8,9 +8,7 @@ public class Task4
         int last = 0;
         Arrays.sort(copyTele);
 
-        int center = N/ 2;
-
-        for (int i = 0; i < center; i++) {
+        for (int i = 0; i < N / 2; i++) {
             arr[i] = copyTele[i];
             last = i;
         }

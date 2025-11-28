@@ -7,16 +7,15 @@ public class Task9
 
         String[] arrStr = s.split(" ");
         String withoutSpaceStr = String.join("", arrStr);
-        int len = withoutSpaceStr.length();
 
-        double sqrt = Math.sqrt(len);
+        double sqrt = Math.sqrt(withoutSpaceStr.length());
         int raw = (int) Math.floor(sqrt);
         int column = (int) Math.ceil(sqrt);
 
         int area = raw * column;
 
-        if (area < len) {
-            int additionalRows = (int) Math.ceil(1.0 * (len - area) / column);
+        if (area < withoutSpaceStr.length()) {
+            int additionalRows = (int) Math.ceil(1.0 * (withoutSpaceStr.length() - area) / column);
             raw += additionalRows;
         }
 
@@ -26,7 +25,7 @@ public class Task9
             for (int j = 0; j < raw; j++) {
                 int position = i + j * raw;
                 String letter = "";
-                if (position < len) {
+                if (position < withoutSpaceStr.length()) {
                     letter = String.valueOf(withoutSpaceStr.charAt(position));
                 }
 

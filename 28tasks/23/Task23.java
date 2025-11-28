@@ -6,7 +6,6 @@ public class Task23
     static final Character SYMBOL_DOT = '.';
     public static String [] TreeOfLife(int H, int W, int N, String [] tree) {
         int[][] arr = new int[H][W];
-        String[] result = new String[H];
 
         for (int i = 0; i < H; i++){
             for ( int j = 0; j < W; j++){
@@ -31,6 +30,7 @@ public class Task23
             isGrowth = !isGrowth;
         }
 
+        String[] result = new String[H];
         for (int i = 0; i < H; i++){
             String str = "";
             for (int j = 0; j < W; j++){

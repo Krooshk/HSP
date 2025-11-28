@@ -15,7 +15,6 @@ public class Task6
         oneHit.put(8, new Integer[]{ 2, 7, 9});
         oneHit.put(9, new Integer[]{ 1, 8 });
 
-        double diag = Math.sqrt(2);
         int prev = hits[0];
         double res = 0;
 
@@ -25,7 +24,7 @@ public class Task6
             if (list.contains(prev)) {
                 res += 1.0;
             } else {
-                res += diag;
+                res += Math.sqrt(2);
             }
             prev = hits[i];
         }

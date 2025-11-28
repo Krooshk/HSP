@@ -8,7 +8,7 @@ public class Task17
 
         if (len == 0) return false;
 
-        for (int i = 0; i <= mid; i++ ) {
+        for (int i = 0; i <= len / 2; i++ ) {
             Character left = line.charAt(i);
             Character right = line.charAt(len - 1 - i);
             if (left != right) {

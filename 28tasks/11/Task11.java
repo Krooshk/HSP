@@ -44,7 +44,6 @@ public class Task11
         }
 
         boolean write = false;
-
         for (int k = 0; k < len1; k++){
             if (arr1[k] != 0) {
                 write = true;
