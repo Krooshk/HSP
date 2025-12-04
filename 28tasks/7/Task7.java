@@ -51,8 +51,10 @@ public class Task7
             boolean isFinishCorrect = (endOfStr == currentStrLength) || currentStr.charAt(endOfStr) == ' ' || currentStr.charAt(endOfStr) == '.';
 
             if (isExistStr && isStartCorrect && isFinishCorrect){
+                res.push(1);
                 res[i] = 1;
             } else {
+                res.push(0);
                 res[i] = 0;
             }
         }
