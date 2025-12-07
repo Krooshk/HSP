@@ -16,6 +16,7 @@ public class DdosCheck {
 
     public int hashFun(String value)
     {
+        // Добавление соли для уменьшения подверженности DDOS-атакам
         String salt = addSalt(value);
         String saltWithValue = salt + value;
         String finalStr = withSalt ? saltWithValue : value;

@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Task6
 {
-    final static String FORMAT_PATTERN = "%.5f";
+    final static String FORMAT_PATTERN = "%.5f"; // 5 знаков в дробной части
     public static String PatternUnlock(int N, int [] hits) {
         HashMap<Integer, Integer[]> oneHit = new HashMap<>();
         oneHit.put(1, new Integer[]{ 2, 6, 9});

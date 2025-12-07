@@ -1,6 +1,7 @@
 import java.util.*;
 
 public class Cyberpunk6 {
+    // По условию задачи длина массива для подсчета цифр
     final int ARRAY_LENGTH = 3;
     public static int[] TRC_sort(int[] trc) {
         int[] countDigits = new int[ARRAY_LENGTH];

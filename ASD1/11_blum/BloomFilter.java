@@ -62,6 +62,7 @@ public class BloomFilter
         int index2 = hash1(str1);
 
         return hasBit(index1) && hasBit(index2);
+        //фильтр Блума может давать ложноположительные ответы
     }
 }
 

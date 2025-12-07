@@ -10,6 +10,7 @@ class NativeCache<T>
     public T [] values;
     public int [] hits;
 
+    // clazz нужно передавать для корректной работы тестов
     public NativeCache(int sz, Class clazz)
     {
         size = sz;

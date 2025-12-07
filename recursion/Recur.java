@@ -3,6 +3,7 @@ import java.io.File;
 
 class Recur {
     public static int degree(int N, int M) {
+        // Возведение числа в нулевую степень возвращает 1
         if (M == 0) {
             return 1;
         }

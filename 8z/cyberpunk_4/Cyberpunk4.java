@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Cyberpunk4 {
-    final int SIZE_FIBERS = 8192;
+    final int SIZE_FIBERS = 8192; // Размер 8 мб по условию
     public static int artificial_muscle_fibers(int[] arr){
         byte[] store = new byte[SIZE_FIBERS];
 
