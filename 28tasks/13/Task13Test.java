@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class Task13Test {
 
+    // Работает только с 8, и 16-ным форматами, последний параметр является флагом, что число восьмеричное
     @Test public void testEmpty(){
         int[] nums = new int[0];
         int[] result = new int[0];

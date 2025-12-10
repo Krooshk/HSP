@@ -92,6 +92,8 @@ public class LinkedList2
             boolean isFit = node.value == _value;
             boolean isNextNull = node.next == null;
             boolean isPrevNull = node.prev == null;
+            // Важно обрабатываеть все случаи:
+            // Когда элемент в начале, в конце, в середине, когда элемент один
             if (isFit && isNextNull && !isPrevNull) {
                 node.prev.next = null;
                 this.tail = node.prev;

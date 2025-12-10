@@ -3,6 +3,7 @@ import java.util.*;
 public class Task28
 {
     static public String Keymaker(int k) {
+        // Массив состояния дверей, изначально они все открыты  и имеют значение "0"
         String[] doors = new String[k];
 
         for (int i = 0; i < k; i++){

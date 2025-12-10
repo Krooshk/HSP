@@ -5,6 +5,8 @@ public class Task10
     final static int DEFAULT_VALUE = 23;
     public static int PrintingCosts(String Line) {
         int res = 0;
+
+        // TODO: вынести в файл с константами
         String tonerValue = "!  9\n" +
                 "\"  6\n" +
                 "#  24\n" +

@@ -5,6 +5,7 @@ public class Task6
     final static String FORMAT_PATTERN = "%.5f"; // 5 знаков в дробной части
     public static String PatternUnlock(int N, int [] hits) {
         HashMap<Integer, Integer[]> oneHit = new HashMap<>();
+        // Для чисел заранее вычислены соседи на клавишах
         oneHit.put(1, new Integer[]{ 2, 6, 9});
         oneHit.put(2, new Integer[]{ 1, 5, 3, 8});
         oneHit.put(3, new Integer[]{ 2, 4, 7});

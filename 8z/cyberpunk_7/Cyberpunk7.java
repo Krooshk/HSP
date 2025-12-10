@@ -3,6 +3,12 @@ import java.util.*;
 public class Cyberpunk7 {
     public static int[] matrix(int n, int m, int [][] matrix) {
         int min = getMin(m, n);
+        // Под кольцами подразумеваю, внутренние "контура" матрицы
+        // Например имеем подобную матрицу
+        // 1 1 1 1
+        // 1 2 2 1
+        // 1 1 1 1
+        // В данном случае будем иметь два кольца, обозначил внешнее 1, внутреннее 2
         int quantityRings = min / 2;
         int[] result = new int[n * m];
         int count = 0;

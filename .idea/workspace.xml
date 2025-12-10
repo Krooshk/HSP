@@ -6,13 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="c057242b-99cb-433c-ad85-722f01589bc0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/10/Task10.java" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/10/Task10.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/11/Task11.java" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/11/Task11.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/13/Task13Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/13/Task13Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/17/Task17.java" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/17/Task17.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/24/Task24.java" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/24/Task24.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/28/Task28.java" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/28/Task28.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/3/Task3.java" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/3/Task3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/28tasks/6/Task6.java" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/6/Task6.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/8z/cyberpunk_4/Cyberpunk4.java" beforeDir="false" afterPath="$PROJECT_DIR$/8z/cyberpunk_4/Cyberpunk4.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/8z/cyberpunk_6/Cyberpunk6.java" beforeDir="false" afterPath="$PROJECT_DIR$/8z/cyberpunk_6/Cyberpunk6.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASD1/11_blum/BloomFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ASD1/11_blum/BloomFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/8z/cyberpunk_7/Cyberpunk7.java" beforeDir="false" afterPath="$PROJECT_DIR$/8z/cyberpunk_7/Cyberpunk7.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ASD1/12_cache/NativeCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/ASD1/12_cache/NativeCache.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASD1/8_hashTable/DdosCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/ASD1/8_hashTable/DdosCheck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recursion/Recur.java" beforeDir="false" afterPath="$PROJECT_DIR$/recursion/Recur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASD1/2_Linked_List/LinkedList2.java" beforeDir="false" afterPath="$PROJECT_DIR$/ASD1/2_Linked_List/LinkedList2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASD1/8_hashTable/HashTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/ASD1/8_hashTable/HashTable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

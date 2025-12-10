@@ -5,6 +5,7 @@ public class Task11
     public static String BigMinus(String s1, String s2){
         boolean isS1Biggest = isFirstBiggest(s1, s2);
 
+        // Определяем наибольшую из строк, чтобы получить результат по модулю
         if (isS1Biggest) {
             return BigMinusRightOrder(s1, s2);
         } else {

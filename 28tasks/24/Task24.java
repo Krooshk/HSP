@@ -7,6 +7,8 @@ public class Task24
         int quantityRings = min / 2;
         String[] rings = new String[quantityRings];
 
+        // Осуществляем поворот матрицы следующим образом:
+        // Определаем "кольца", затем разворачиваем их в полосу, сдвигаем элементы и в обратном порядке восстанавливаем
         for (int i = 0; i < quantityRings; i++){
             String str = "";
             for (int j = i; j < N - i - 1; j++){

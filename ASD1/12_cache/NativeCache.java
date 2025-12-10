@@ -66,6 +66,7 @@ class NativeCache<T>
 
     public void put(String key, T value)
     {
+        // Используется кеширование LFU(Least Frequently Used)
         int indexExist = getIndex(key);
         if (isKey(key) && indexExist >= 0) {
             hits[indexExist] += 1;

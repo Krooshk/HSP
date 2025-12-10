@@ -23,6 +23,7 @@ public class Task3
 
                 int x = point[0];
                 int y = point[1];
+                // Рассматриваем движение во все четыре стороны
                 handlePoint( x + 1, y, map, queue, N, M);
                 handlePoint(x - 1, y, map, queue, N, M);
                 handlePoint(x, y + 1, map, queue, N, M);

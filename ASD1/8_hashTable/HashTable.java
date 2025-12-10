@@ -5,6 +5,7 @@ public class HashTable
     public String [] slots;
 
     public HashTable(int sz, int stp)
+    // TODO: исправить на более оптимальный вариант решения коллизий
     {
         size = sz;
         step = stp;
