@@ -124,74 +124,58 @@ class BST<T>
         return traverseExtremum(isMax, node.LeftChild);
     }
 
+    // DeleteNodeByKey, Time - O(logN), Space - O(1)
     public boolean DeleteNodeByKey(int key)
     {
         BSTFind<T> interimResultFindKey = FindNodeByKey(key);
+        BSTNode<T> toDeletedNode = interimResultFindKey.Node;
         if (!interimResultFindKey.NodeHasKey) return false;
 
-        boolean isRoot = interimResultFindKey.Node.Parent == null;
-        boolean isHasRightChild = interimResultFindKey.Node.Parent == null;
-        boolean isHasLeftChild = interimResultFindKey.Node.Parent == null;
-        boolean isRootHasOneChild = isRoot && ((isHasRightChild && !isHasLeftChild) || (!isHasRightChild && isHasLeftChild));
+        boolean isHasRightChild = toDeletedNode.RightChild != null;
+        boolean isHasLeftChild = toDeletedNode.LeftChild != null;
+        boolean isHasOneChild = ((isHasRightChild && !isHasLeftChild) || (!isHasRightChild && isHasLeftChild));
 
-
-        if (isRootHasOneChild) {
-            Root = interimResultFindKey.Node;
-            interimResultFindKey.Node.Parent = null;
+        if (isHasOneChild) {
+            BSTNode<T> child = toDeletedNode.RightChild != null ? toDeletedNode.RightChild : toDeletedNode.LeftChild;
+            connectParentNode(child, toDeletedNode.Parent);
             return true;
         }
 
-        if (isHasRightChild && isHasLeftChild) {
-            BSTNode<T> min = FinMinMax(interimResultFindKey.Node.RightChild, false);
+        BSTNode<T> replacement = FinMinMax(toDeletedNode.RightChild, false);
+        connectParentNode(replacement.RightChild, replacement.Parent);
 
-            if (min.RightChild == null) {
-                min.RightChild = interimResultFindKey.Node.RightChild;
-                min.LeftChild = interimResultFindKey.Node.LeftChild;
-                interimResultFindKey.Node.RightChild.Parent = min;
-                interimResultFindKey.Node.LeftChild.Parent = min;
-                min.Parent.LeftChild = null;
-                if(isRoot) {
-                    min.Parent = null;
-                    Root = min;
-                    return true;
-                } else {
-                    min.Parent = interimResultFindKey.Node.Parent;
-                    if (min.NodeKey < interimResultFindKey.Node.Parent.NodeKey) {
-                        interimResultFindKey.Node.Parent.LeftChild = min;
-                    } else {
-                        interimResultFindKey.Node.Parent.RightChild = min;
-                    }
-                    return true;
-                }
+        replacement.RightChild = toDeletedNode.RightChild == replacement ? null : toDeletedNode.RightChild;
+        replacement.LeftChild = toDeletedNode.LeftChild == replacement ? null : toDeletedNode.LeftChild;
 
-            } else {
-                interimResultFindKey.Node.RightChild.Parent = min;
-                interimResultFindKey.Node.LeftChild.Parent = min;
-                min.Parent.RightChild = min.RightChild;
-                min.RightChild.Parent = min.Parent;
-                min.RightChild = interimResultFindKey.Node.RightChild;
-                min.LeftChild = interimResultFindKey.Node.LeftChild;
-                if(isRoot) {
-                    min.Parent = null;
-                    Root = min;
-                    return true;
-                } else {
-                    min.RightChild.Parent = min.Parent;
-                    min.Parent = interimResultFindKey.Node.Parent;
-                    if (min.NodeKey < interimResultFindKey.Node.Parent.NodeKey) {
-                        interimResultFindKey.Node.Parent.LeftChild = min;
-                    } else {
-                        interimResultFindKey.Node.Parent.RightChild = min;
-                    }
-                    return true;
-                }
-            }
-        }
-
-
-
+        removeConnectionWithParent(replacement);
+        connectParentNode(replacement, toDeletedNode.Parent);
 
         return true;
+    }
+
+    private void removeConnectionWithParent(BSTNode<T> node){
+        if (node.Parent.NodeKey > node.NodeKey) {
+            node.Parent.LeftChild = null;
+            return;
+        }
+
+        node.Parent.RightChild = null;
+    }
+
+    private void connectParentNode(BSTNode<T> node, BSTNode<T> parent){
+        if (node == null) return;
+
+        node.Parent = parent;
+
+        if (parent == null) {
+            Root = node;
+            return;
+        }
+        if (parent.NodeKey > node.NodeKey) {
+            node.Parent.LeftChild = node;
+            return;
+        }
+        node.Parent.RightChild = node;
     }
 
     // Count, Time - O(N), Space - O(1)
