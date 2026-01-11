@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c057242b-99cb-433c-ad85-722f01589bc0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/HSP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HSP.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASD2/2_BST/BST.java" beforeDir="false" afterPath="$PROJECT_DIR$/ASD2/2_BST/BST.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASD2/2_BST/BSTTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ASD2/2_BST/BSTTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASD2/out/production/ASD2/BST.class" beforeDir="false" afterPath="$PROJECT_DIR$/ASD2/out/production/ASD2/BST.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASD2/out/production/ASD2/BSTAdditional.class" beforeDir="false" afterPath="$PROJECT_DIR$/ASD2/out/production/ASD2/BSTAdditional.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASD2/out/production/ASD2/BSTTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/ASD2/out/production/ASD2/BSTTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +67,7 @@
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "/home/kirill/Desktop/bbr2/HSP/ASD2/1_SimpleTree",
-    "last_opened_file_path": "/home/kirill/Desktop/bbr/HSP/recursion",
+    "last_opened_file_path": "/home/kirill/Desktop/bbr2/HSP/HW/CyclomaticComplexity",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -71,6 +75,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/HW/CyclomaticComplexity" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>

@@ -103,6 +103,11 @@ class BSTAdditional<T>
         boolean isHasLeftChild = toDeletedNode.LeftChild != null;
         boolean isHasOneChild = ((isHasRightChild && !isHasLeftChild) || (!isHasRightChild && isHasLeftChild));
 
+        if (!isHasRightChild && !isHasLeftChild) {
+            removeConnectionWithParent(toDeletedNode);
+            return true;
+        }
+
         if (isHasOneChild) {
             BSTNode<T> child = toDeletedNode.RightChild != null ? toDeletedNode.RightChild : toDeletedNode.LeftChild;
             connectParentNode(child, toDeletedNode.Parent);

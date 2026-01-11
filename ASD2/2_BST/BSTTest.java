@@ -413,4 +413,64 @@ class BSTTest {
         assertEquals(interimResultFindKeyAfterDelete.NodeHasKey, false);
         assertEquals(bst.Count(), 8);
     }
+
+    @Test public void testDeleteLastLeft(){
+        BSTNode<Integer> root = new BSTNode<Integer>(8, 8, null);
+        BSTNode<Integer> two1 = new BSTNode<Integer>(4, 4, root);
+        BSTNode<Integer> two2 = new BSTNode<Integer>(10, 10, root);
+        BSTNode<Integer> three1 = new BSTNode<Integer>(3, 3, two1);
+        BSTNode<Integer> three2 = new BSTNode<Integer>(5, 5, two1);
+        BSTNode<Integer> three3 = new BSTNode<Integer>(9, 9, two2);
+        BSTNode<Integer> three4 = new BSTNode<Integer>(12, 12, two2);
+        BSTNode<Integer> four1 = new BSTNode<Integer>(1, 1, three1);
+        BSTNode<Integer> four4 = new BSTNode<Integer>(6, 6, three2);
+        root.LeftChild = two1;
+        root.RightChild = two2;
+        two1.LeftChild = three1;
+        two1.RightChild = three2;
+        two2.LeftChild = three3;
+        two2.RightChild = three4;
+        three1.LeftChild = four1;
+        three2.RightChild = four4;
+        BST<Integer> bst = new BST<>(root);
+
+        BSTFind<Integer> interimResultFindKeyBeforeDelete = bst.FindNodeByKey(1);
+        boolean isDelete = bst.DeleteNodeByKey(1);
+        BSTFind<Integer> interimResultFindKeyAfterDelete = bst.FindNodeByKey(1);
+
+        assertEquals(interimResultFindKeyBeforeDelete.NodeHasKey, true);
+        assertEquals(isDelete, true);
+        assertEquals(interimResultFindKeyAfterDelete.NodeHasKey, false);
+        assertEquals(bst.Count(), 8);
+    }
+
+    @Test public void testDeleteLastRight(){
+        BSTNode<Integer> root = new BSTNode<Integer>(8, 8, null);
+        BSTNode<Integer> two1 = new BSTNode<Integer>(4, 4, root);
+        BSTNode<Integer> two2 = new BSTNode<Integer>(10, 10, root);
+        BSTNode<Integer> three1 = new BSTNode<Integer>(3, 3, two1);
+        BSTNode<Integer> three2 = new BSTNode<Integer>(5, 5, two1);
+        BSTNode<Integer> three3 = new BSTNode<Integer>(9, 9, two2);
+        BSTNode<Integer> three4 = new BSTNode<Integer>(12, 12, two2);
+        BSTNode<Integer> four1 = new BSTNode<Integer>(1, 1, three1);
+        BSTNode<Integer> four4 = new BSTNode<Integer>(6, 6, three2);
+        root.LeftChild = two1;
+        root.RightChild = two2;
+        two1.LeftChild = three1;
+        two1.RightChild = three2;
+        two2.LeftChild = three3;
+        two2.RightChild = three4;
+        three1.LeftChild = four1;
+        three2.RightChild = four4;
+        BST<Integer> bst = new BST<>(root);
+
+        BSTFind<Integer> interimResultFindKeyBeforeDelete = bst.FindNodeByKey(6);
+        boolean isDelete = bst.DeleteNodeByKey(6);
+        BSTFind<Integer> interimResultFindKeyAfterDelete = bst.FindNodeByKey(6);
+
+        assertEquals(interimResultFindKeyBeforeDelete.NodeHasKey, true);
+        assertEquals(isDelete, true);
+        assertEquals(interimResultFindKeyAfterDelete.NodeHasKey, false);
+        assertEquals(bst.Count(), 8);
+    }
 }
