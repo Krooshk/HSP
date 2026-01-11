@@ -196,6 +196,40 @@ class BSTAdditional<T>
         return left && right;
     }
 
+    // Задание 2, getAllPath, Time - O(N), Space - O(1)
+    public ArrayList<int []> getAllPath(int left) {
+        int [] array = new int[left];
+        return traverseAllPath(0, left, Root , array);
+    }
+
+    public ArrayList<int []> traverseAllPath(int level, int left, BSTNode<T> node, int [] array) {
+        ArrayList<int []> result = new ArrayList<>();
+        int[] copyArray = Arrays.copyOf(array, array.length);
+        copyArray[level] = node.NodeKey;
+        if (left == 1 && node.LeftChild == null && node.RightChild == null) {
+            ArrayList<int []> list = new ArrayList<>();
+            list.add(copyArray);
+            return list;
+        }
+
+        if (left == 1) {
+            ArrayList<int []> list = new ArrayList<>();
+            return list;
+        }
+
+        if (node.LeftChild != null) {
+            ArrayList<int []> leftPath = traverseAllPath(level + 1, left - 1, node.LeftChild, copyArray);
+            result.addAll(leftPath);
+        }
+
+        if (node.RightChild != null) {
+            ArrayList<int []> leftPath = traverseAllPath(level + 1, left - 1, node.RightChild, copyArray);
+            result.addAll(leftPath);
+        }
+
+        return result;
+    }
+
     // Задание 4, isSymmetric, Time - O(N), Space - O(1)
     public boolean isSymmetric() {
         return traverseSym(Root.LeftChild, Root.RightChild);
