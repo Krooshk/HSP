@@ -475,6 +475,20 @@ class BSTTest {
         assertEquals(interimResultFindKeyAfterDelete.NodeHasKey, false);
         assertEquals(bst.Count(), 8);
     }
+
+    @Test public void testDeleteSingleLastNode(){
+        BSTNode<Integer> root = new BSTNode<Integer>(8, 8, null);
+        BST<Integer> bst = new BST<>(root);
+
+        BSTFind<Integer> interimResultFindKeyBeforeDelete = bst.FindNodeByKey(8);
+        boolean isDelete = bst.DeleteNodeByKey(8);
+        BSTFind<Integer> interimResultFindKeyAfterDelete = bst.FindNodeByKey(8);
+
+        assertEquals(interimResultFindKeyBeforeDelete.NodeHasKey, true);
+        assertEquals(isDelete, true);
+        assertEquals(interimResultFindKeyAfterDelete, null);
+        assertEquals(bst.Count(), 0);
+    }
 }
 
 // Тесты к дополнительным заданиям
