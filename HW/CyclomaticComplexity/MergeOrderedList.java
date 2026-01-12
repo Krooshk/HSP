@@ -84,3 +84,5 @@ public class MergeOrderedList<T> {
 
 
 }
+
+337% Изначально

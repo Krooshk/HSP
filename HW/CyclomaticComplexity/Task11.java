@@ -1,18 +1,3 @@
-import java.util.*;
-
-public class Task11
-{
-    public static String BigMinus(String s1, String s2){
-        boolean isS1Biggest = isFirstBiggest(s1, s2);
-
-        // Определяем наибольшую из строк, чтобы получить результат по модулю
-        if (isS1Biggest) {
-            return BigMinusRightOrder(s1, s2);
-        } else {
-            return BigMinusRightOrder(s2, s1);
-        }
-
-    }
 
     public static String BigMinusRightOrder(String s1, String s2){
         String result = "";
@@ -38,10 +23,10 @@ public class Task11
             if (diff >= 0) {
                 arr1[len1 - 1 - i] = diff;
                 debt = 0;
-            } else {
-                arr1[len1 - 1 - i] = diff + 10;
-                debt = 1;
+                continue;
             }
+            arr1[len1 - 1 - i] = diff + 10;
+            debt = 1;
         }
 
         boolean write = false;
@@ -54,31 +39,8 @@ public class Task11
             }
         }
 
-        if (result.length() == 0) {
-            result = "0";
-        }
-
-        return result;
+        return result.length() == 0 ? "0" : result;
     }
 
-    public static int getNum(String s, int pos) {
-        return Character.getNumericValue(s.charAt(pos));
-    }
-
-    public static  boolean isFirstBiggest(String s1, String s2) {
-        if (s1.length() > s2.length()) {
-            return true;
-        }
-
-        for ( int i = 0; i < s1.length(); i++){
-            int intFirst = getNum(s1, i);
-            int intSecond = getNum(s2,i);
-            if (intFirst > intSecond) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-}
+    175% изначально
 
