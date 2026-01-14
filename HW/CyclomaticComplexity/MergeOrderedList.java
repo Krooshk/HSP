@@ -1,7 +1,5 @@
-import org.junit.jupiter.api.Order;
 
-public class MergeOrderedList<T> {
-    //7-9* merge
+//337% Изначально
     public OrderedList<T> merge(OrderedList<T> list1, OrderedList<T> list2){
         OrderedList<T> orderedList = new OrderedList<>(list1.isAsc());
         Node<T> first = list1.head;
@@ -56,33 +54,57 @@ public class MergeOrderedList<T> {
         return orderedList;
     }
 
-    //7-10* findSubList
-    public boolean findSubList(OrderedList<T> sub, OrderedList<T> orderedList) {
-        Node<T> substart = sub.head;
-        Node<T> orderListPointer = orderedList.head;
+
+    //337% Изначально
+    public OrderedList<T> merge(OrderedList<T> list1, OrderedList<T> list2){
+        OrderedList<T> orderedList = new OrderedList<>(list1.isAsc());
+        Node<T> first = list1.head;
+        Node<T> second = list2.head;
         boolean isReverse = false;
-        if (orderedList.isAsc() != sub.isAsc()) {
+        if (list1.isAsc() != list2.isAsc()) {
+            second = list2.tail;
             isReverse = true;
-            substart = sub.tail;
         }
 
-        for ( ;orderListPointer != null;) {
-            if (substart.value == orderListPointer.value) {
-                substart  =  isReverse ? substart.prev : substart.next;
+        for (;first != null || second != null;) {
+            second = isReverse ? second.prev ? second.next;
+            if (first == null && !isReverse) {
+                orderedList.add(second.value);
+                continue;
+            }
+
+            if (second == null) {
+                orderedList.add(first.value);
+                first = first.next;
+                continue;
+            }
+            if (list1.isAsc() && orderedList.compare(second.value, first.value) > 0)  {
+                orderedList.add(first.value);
+                first = first.next;
+                continue;
+            } else if (list1.isAsc()) {
+                orderedList.add(second.value);
+                if (isReverse) {
+                    second = second.prev;
+                } else {
+                    second = second.next;
+                }
+                continue;
+            }
+            if (!list1.isAsc() && orderedList.compare(second.value, first.value) > 0) {
+                orderedList.add(second.value);
+                if (isReverse) {
+                    second = second.prev;
+                } else {
+                    second = second.next;
+                }
             } else {
-                substart = orderedList.isAsc() != sub.isAsc() ? sub.tail : sub.head;
-            }
-            orderListPointer = orderListPointer.next;
-
-            if (substart == null) {
-                return true;
+                orderedList.add(first.value);
+                first = first.next;
             }
         }
 
-        return false;
+        return orderedList;
     }
 
 
-}
-
-337% Изначально

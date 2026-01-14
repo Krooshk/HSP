@@ -5,12 +5,72 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c057242b-99cb-433c-ad85-722f01589bc0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/HSP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/HSP.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASD2/2_BST/BST.java" beforeDir="false" afterPath="$PROJECT_DIR$/ASD2/2_BST/BST.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASD2/2_BST/BSTTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ASD2/2_BST/BSTTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASD2/out/production/ASD2/BST.class" beforeDir="false" afterPath="$PROJECT_DIR$/ASD2/out/production/ASD2/BST.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASD2/out/production/ASD2/BSTAdditional.class" beforeDir="false" afterPath="$PROJECT_DIR$/ASD2/out/production/ASD2/BSTAdditional.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ASD2/out/production/ASD2/BSTTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/ASD2/out/production/ASD2/BSTTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/.idea/28tasks.iml" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/.idea/28tasks.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Level2.class" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/1/production/28tasks/Level2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task10.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task10Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task11.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task11Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task12.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task12Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task13.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task13Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task14.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task14Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task15.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task15Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task16.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task16Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task17.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task17Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task18.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task18Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task19.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task19Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task20.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task20Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task21.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task21Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task22.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task22Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task23.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task23Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task24.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task24Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task25.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task25Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task26.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task26Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task27.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task27Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task28.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task28Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task3.class" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task4Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task5Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task6Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task7Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task8.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task8Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task9.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/Task9Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/production/28tasks/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/production/28tasks/.idea/3.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/production/28tasks/.idea/5.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/production/28tasks/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/production/28tasks/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/production/28tasks/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/1/production/28tasks/production/28tasks/1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/11/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/11/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/28tasks/11/Task11.java" beforeDir="false" afterPath="$PROJECT_DIR$/28tasks/11/Task11.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HW/CyclomaticComplexity/MergeOrderedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/HW/CyclomaticComplexity/MergeOrderedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HW/CyclomaticComplexity/Task11.java" beforeDir="false" afterPath="$PROJECT_DIR$/HW/CyclomaticComplexity/Task11.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +113,7 @@
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.MyCodeTest.executor": "Run",
     "JUnit.MyCodeTest2.executor": "Run",
+    "JUnit.Task11Test.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
@@ -85,7 +146,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.Task11Test">
     <configuration name="MyCodeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HSP" />
       <option name="PACKAGE_NAME" value="" />
@@ -99,6 +160,15 @@
       <module name="HSP" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="MyCodeTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Task11Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HSP" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Task11Test" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -106,6 +176,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Task11Test" />
         <item itemvalue="JUnit.MyCodeTest" />
       </list>
     </recent_temporary>
