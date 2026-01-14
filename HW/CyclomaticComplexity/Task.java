@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-//    175% изначально
+//    BigMinusRightOrder 175% изначально
     public static String BigMinusRightOrder(String s1, String s2){
         String result = "";
 
@@ -51,9 +51,7 @@ import java.util.stream.IntStream;
     }
 
 
-
-
-//   75% после рефакторинга
+//   BigMinusRightOrder 75% после рефакторинга
 public static String BigMinusRightOrder(String s1, String s2){
     String result = "0";
 

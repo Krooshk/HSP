@@ -99,6 +99,16 @@ class BSTTest {
         assertEquals(right.LeftChild.NodeValue, 1000);
     }
 
+    @Test public void testAddingInEmpty(){
+        BST<Integer> bst = new BST<>(null);
+
+        boolean isAdd = bst.AddKeyValue(9, 1000);
+        BSTFind<Integer> interimResultFindKeyAfterAdd = bst.FindNodeByKey(9);
+        
+        assertEquals(isAdd, true);
+        assertEquals(interimResultFindKeyAfterAdd.NodeHasKey, true);
+    }
+
     @Test public void testFindMaxRoot(){
         BSTNode<Integer> root = new BSTNode<Integer>(8, 8, null);
         BSTNode<Integer> two1 = new BSTNode<Integer>(4, 4, root);
