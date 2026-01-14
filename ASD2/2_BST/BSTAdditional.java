@@ -56,6 +56,11 @@ class BSTAdditional<T>
     public boolean AddKeyValue(int key, T val)
     {
         BSTFind<T> interimResultFindKey = FindNodeByKey(key);
+        if (interimResultFindKey == null) {
+            Root = new BSTNode<>(key, val, null);
+            return true;
+        }
+
         if (interimResultFindKey.NodeHasKey) return false;
         BSTNode<T> newNode = new BSTNode<>(key, val, interimResultFindKey.Node);
 
