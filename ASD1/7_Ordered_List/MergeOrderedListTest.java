@@ -1,11 +1,13 @@
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import org.junit.jupiter.api.*;
 
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class MergeOrderedListTest {
-    @Test public void merge() {
+public class MergeOrderedListTest {
+    @Test
+    public void merge() {
         OrderedList<Integer> orderedList1 = new OrderedList<>(true);
         orderedList1.add(7);
         orderedList1.add(3);
