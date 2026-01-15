@@ -1,9 +1,5 @@
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
+``` java
 // 1____________   BigMinusRightOrder 175% изначально
 public static String BigMinusRightOrder(String s1, String s2){
     String result = "";
@@ -14,9 +10,11 @@ public static String BigMinusRightOrder(String s1, String s2){
     for (int u = 0; u < len1; u++){
         arr1[u] = getNum(s1, u);
     }
+    
     for (int j = 0; j < len2; j++){
         arr2[j] = getNum(s2, j);
     }
+    
     int debt = 0;
     for (int i = 0; i < len1; i++) {
         int secondElem = 0;
@@ -39,16 +37,19 @@ public static String BigMinusRightOrder(String s1, String s2){
             result += arr1[k];
         }
     }
+    
     if (result.length() == 0) {
         result = "0";
     }
+    
     return result;
 }
 
-
+```
+``` java
 //   BigMinusRightOrder 75% после рефакторинга. Избавление от else, использование regex, чтобы отформатировать итоговое число.
 public static String BigMinusRightOrder(String s1, String s2){
-    String result = "0";
+String result = "0";
 
     int len1 = s1.length();
     int len2 = s2.length();
@@ -83,10 +84,11 @@ public static String BigMinusRightOrder(String s1, String s2){
 
     return result.replaceFirst("^0+", "");
 }
+```
+____
 
-
+``` java
 //2__________________________________merge 337% Изначально
-
         public OrderedList<T> merge(OrderedList<T> list1, OrderedList<T> list2){
             OrderedList<T> orderedList = new OrderedList<>(list1.isAsc());
             Node<T> first = list1.head;
@@ -140,7 +142,8 @@ public static String BigMinusRightOrder(String s1, String s2){
 
             return orderedList;
         }
-
+```
+```java 
 //  merge(12%) и отдельный метод traverse(150%); Избавление от else, переход от циклов к рекурсии, использование Optional.
 
         public OrderedList<T> merge(OrderedList<T> list1, OrderedList<T> list2){
@@ -181,8 +184,9 @@ public static String BigMinusRightOrder(String s1, String s2){
             orderedList.add(second.get().value);
             return traverse(first, Optional.ofNullable(isReverse ? second.get().prev : second.get().next), isReverse, isAsc, orderedList);
         }
-
-
+```
+____
+```java 
 // 3_________________- EEC_help Изначально 137%
 
         public static boolean EEC_help(int [] arr1, int [] arr2){
@@ -214,11 +218,12 @@ public static String BigMinusRightOrder(String s1, String s2){
 
             return map.size() == 0;
         }
-
+```
+``` java
 // EEC_help После рефакторинга 75%. Избавление от else, использование Optional
-        public static boolean EEC_help(int [] arr1, int [] arr2) {
-            if (arr1.length != arr2.length) return false;
-            HashMap<Integer, Integer> map = new HashMap<>();
+public static boolean EEC_help(int [] arr1, int [] arr2) {
+if (arr1.length != arr2.length) return false;
+HashMap<Integer, Integer> map = new HashMap<>();
 
             for (int i = 0; i < arr1.length; i++) {
                 int elem = arr1[i];
@@ -237,8 +242,12 @@ public static String BigMinusRightOrder(String s1, String s2){
 
             return map.size() == 0;
         }
+```
 
+> Очень непросто было найти соответсвующий код для рефакторинга. Было трудно избавиться во втором примере от цикла for, переведя на рекурсию.
+> Не зря говорят: "Что рекурсия замедляет компьютер, но ускоряет разработчиков". Код стал более читаем. Использовал расширение CodeComplexity. 
+> Показывалась сложность в процентах. Заметил, что замена условия на тернарный оператор не меняет сложность у данного расширения. Сложность еще была не только в рефакторинге, сколько в 
+> способности разобраться в старонаписанном коде. Хорошо, что ко всем методам были написаны тесты и я мог сразу же проверить, корректно ли исправление.
 
-//
-
+> Для себя понял, что очень просто улучшить код, убрав else. Также понравился вариант с Optional. В будущем буду их применять.
 
