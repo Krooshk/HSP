@@ -1,6 +1,7 @@
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -88,5 +89,75 @@ public class BSTAdditionalTest {
         ArrayList<BSTNode> result = bst.WideAllNodes();
         assertEquals(result.size(), 9);
         assertEquals(result, actual);
+    }
+
+    @Test public void testPrefixInfixConverterNull(){
+        Integer[] prefix = { };
+        Integer[] infix = { };
+
+        BSTAdditional bstBase = new BSTAdditional<>(null);
+        BSTAdditional BSTfromConverter = bstBase.getBst(prefix, infix);
+
+        ArrayList<BSTNode> result = BSTfromConverter.WideAllNodes();
+        int[] numberFromNodes =  result.stream()
+                .mapToInt(el -> el.NodeKey)
+                .toArray();
+
+        assertArrayEquals(numberFromNodes, new int[]{});
+    }
+
+    @Test public void testPrefixInfixConverterOne(){
+        Integer[] prefix = { 1 };
+        Integer[] infix = { 1 };
+
+        BSTAdditional bstBase = new BSTAdditional<>(null);
+        BSTAdditional BSTfromConverter = bstBase.getBst(prefix, infix);
+
+        ArrayList<BSTNode> result = BSTfromConverter.WideAllNodes();
+        int[] numberFromNodes =  result.stream()
+                .mapToInt(el -> el.NodeKey)
+                .toArray();
+
+        assertArrayEquals(numberFromNodes, new int[]{1});
+    }
+
+    @Test public void testPrefixInfixConverterEasyTree(){
+        Integer[] prefix = { 1, 2 };
+        Integer[] infix = { 2, 1 };
+
+        BSTAdditional bstBase = new BSTAdditional<>(null);
+        BSTAdditional BSTfromConverter = bstBase.getBst(prefix, infix);
+
+        ArrayList<BSTNode> result = BSTfromConverter.WideAllNodes();
+        int[] numberFromNodes =  result.stream()
+                .mapToInt(el -> el.NodeKey)
+                .toArray();
+
+        assertArrayEquals(numberFromNodes, new int[]{1, 2});
+    }
+
+    @Test public void findIndex(){
+        Integer[] prefix = { 1, 2};
+        Integer[] infix = { 2, 1 };
+
+        Integer localRoot = prefix[0];
+        Integer index =  Arrays.asList(infix).indexOf(localRoot);
+
+        assertEquals(index, 1);
+    }
+
+    @Test public void testPrefixInfixConverter(){
+        Integer[] prefix = { 1, 2 ,4, 5, 3, 6, 7 };
+        Integer[] infix = { 4, 2, 5, 1, 6, 3, 7};
+
+        BSTAdditional bstBase = new BSTAdditional<>(null);
+        BSTAdditional BSTfromConverter = bstBase.getBst(prefix, infix);
+
+        ArrayList<BSTNode> result = BSTfromConverter.WideAllNodes();
+        int[] numberFromNodes =  result.stream()
+                .mapToInt(el -> el.NodeKey)
+                .toArray();
+
+        assertArrayEquals(numberFromNodes, new int[]{1,2,3,4,5,6,7});
     }
 }

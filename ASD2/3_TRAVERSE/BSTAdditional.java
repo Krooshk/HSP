@@ -377,4 +377,34 @@ class BSTAdditional<T>
         traverseInvert(node.LeftChild);
         traverseInvert(node.RightChild);
     }
+
+    BSTAdditional getBst(Integer[] prefix, Integer[] infix){
+        BSTNode root = getNode(prefix, infix, null);
+        BSTAdditional bst = new BSTAdditional(root);
+
+        return bst;
+    }
+
+    private BSTNode getNode(Integer[] prefix, Integer[] infix, BSTNode parent) {
+        if (prefix.length == 0) {
+            return null;
+        }
+        Integer localRoot = prefix[0];
+        if (prefix.length == 1) {
+            return new BSTNode<>(localRoot, localRoot, parent);
+        }
+
+        Integer index = Arrays.asList(infix).indexOf(localRoot);
+        BSTNode node = new BSTNode(localRoot, localRoot, parent);
+        Integer[] leftInfix = Arrays.copyOfRange(infix, 0, index);
+        Integer[] rightInfix = Arrays.copyOfRange(infix, index + 1, infix.length);
+        Integer[] leftPrefix = Arrays.copyOfRange(prefix, 1, 1 + leftInfix.length);
+        Integer[] rightPrefix = Arrays.copyOfRange(prefix,  1 + leftInfix.length, prefix.length);
+        node.LeftChild = getNode(leftPrefix, leftInfix, node);
+        node.RightChild = getNode(rightPrefix, rightInfix, node);
+
+        return node;
+    }
+
+
 }
