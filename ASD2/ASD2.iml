@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/1_SimpleTree" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/3_TRAVERSE" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/4_BST_FIND" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/5_GENERATE_BST" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
