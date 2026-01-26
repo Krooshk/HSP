@@ -10,7 +10,7 @@ public class AlgorithmsDataStructures2
         int[] result = new int[a.length];
         helper(copyArray, result, 0);
 
-        return result ;
+        return result;
     }
 
     private static void helper(int[] workArray, int[] result, int index) {
