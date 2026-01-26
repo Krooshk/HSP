@@ -147,4 +147,43 @@ public class BSTNodeTest {
         assertEquals(result, actual);
     }
 
+    @Test public void testSpeedFind(){
+        BSTNode<Integer> root = new BSTNode<Integer>(50, 50, null);
+        BSTNode<Integer> two1 = new BSTNode<Integer>(25, 25, root);
+        BSTNode<Integer> two2 = new BSTNode<Integer>(75, 75, root);
+        BSTNode<Integer> three1 = new BSTNode<Integer>(10, 10, two1);
+        BSTNode<Integer> three2 = new BSTNode<Integer>(37, 37, two1);
+        BSTNode<Integer> three3 = new BSTNode<Integer>(62, 62, two2);
+        BSTNode<Integer> three4 = new BSTNode<Integer>(84, 84, two2);
+        BSTNode<Integer> four1 = new BSTNode<Integer>(5, 5, three1);
+        BSTNode<Integer> four2 = new BSTNode<Integer>(11, 11, three1);
+        BSTNode<Integer> four3 = new BSTNode<Integer>(31, 31, three2);
+        BSTNode<Integer> four4 = new BSTNode<Integer>(43, 43, three2);
+        BSTNode<Integer> four5 = new BSTNode<Integer>(55, 55, three3);
+        BSTNode<Integer> four6 = new BSTNode<Integer>(65, 65, three3);
+        BSTNode<Integer> four7 = new BSTNode<Integer>(80, 80, three4);
+        BSTNode<Integer> four8 = new BSTNode<Integer>(92, 92, three4);
+        root.LeftChild = two1;
+        root.RightChild = two2;
+        two1.LeftChild = three1;
+        two1.RightChild = three2;
+        two2.LeftChild = three3;
+        two2.RightChild = three4;
+        three1.LeftChild = four1;
+        three1.RightChild = four2;
+        three2.LeftChild = four3;
+        three2.RightChild = four4;
+        three3.LeftChild = four5;
+        three3.RightChild = four6;
+        three4.LeftChild = four7;
+        three4.RightChild = four8;
+        BST<Integer> bst = new BST<>(root);
+
+        long startTime = System.nanoTime();
+        bst.FindNodeByKey(92);
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime);
+        System.out.println("Время выполнения: " + duration + " нс"); // 265576 152511 139366  ~ 185817 нс
+    }
+
 }

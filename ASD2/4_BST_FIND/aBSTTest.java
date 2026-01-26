@@ -105,4 +105,18 @@ public class aBSTTest {
 
         assertEquals(abst.WideAllNodes(),  actual);
     }
+
+    @Test public void testSpeed(){
+        aBST abst = new aBST(3);
+        int[] keys = { 50, 75, 84, 92, 62, 55, 65, 80, 25, 10, 5, 37, 31, 43, 11 };
+
+        for (int key: keys) {
+            abst.AddKey(key);
+        }
+        long startTime = System.nanoTime();
+        abst.FindKeyIndex(92);
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime);
+        System.out.println("Время выполнения: " + duration + " мс"); // 1122 1743 1532 ~ 1465 нс
+    }
 }
