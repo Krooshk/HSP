@@ -90,7 +90,7 @@ class BalancedBST
         return checks.stream().filter(el -> !el).toArray().length == 0;
     };
 
-    // Task 3* ,
+    // Task 3* , Time(O(N^2)), Space(1)
     public boolean IsBalanced(BSTNode root_node)
     {
         if (root_node == null) return true;
