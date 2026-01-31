@@ -7,6 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/4_BST_FIND" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/5_GENERATE_BST" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/6_GENERATE_BST_II" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/7_HEAP" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
