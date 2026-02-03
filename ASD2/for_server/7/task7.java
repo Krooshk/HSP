@@ -2,7 +2,7 @@ import java.util.*;
 
 class Heap
 {
-    public int [] HeapArray; // хранит неотрицательные числа-ключи
+    public int [] HeapArray;
     private int index = 0;
 
     public Heap() { HeapArray = null; }
@@ -98,3 +98,5 @@ class Heap
     }
 
 }
+
+

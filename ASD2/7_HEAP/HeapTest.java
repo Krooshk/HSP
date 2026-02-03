@@ -6,7 +6,25 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class HeapTest {
-    @Test public void testRegres(){
+    @Test public void testGenerateEmpty(){
+        Heap heap = new Heap();
+        int[] arr = { };
+        heap.MakeHeap(arr, 0);
+
+        int[] result = { -1 };
+        assertArrayEquals(heap.HeapArray, result);
+    }
+
+    @Test public void testGenerateOne(){
+        Heap heap = new Heap();
+        int[] arr = { 2 };
+        heap.MakeHeap(arr, 0);
+
+        int[] result = { 2 };
+        assertArrayEquals(heap.HeapArray, result);
+    }
+
+    @Test public void testGenerateRegres(){
         Heap heap = new Heap();
         int[] arr = { 1, 2, 3, 4, 5, 6, 7 };
         heap.MakeHeap(arr, 2);
@@ -21,6 +39,14 @@ public class HeapTest {
         heap.MakeHeap(arr, 2);
 
         assertFalse(heap.Add(8));
+    }
+
+    @Test public void testAddPositive(){
+        Heap heap = new Heap();
+        int[] arr = { 1, 2, 3, 4, 5, 6 };
+        heap.MakeHeap(arr, 2);
+
+        assertTrue(heap.Add(8));
     }
 
     @Test public void testProperHeap(){
@@ -38,6 +64,33 @@ public class HeapTest {
         heap.HeapArray = arr;
 
         assertFalse(heap.isProperHeap());
+    }
+
+    @Test public void getMax(){
+        Heap heap = new Heap();
+        int[] arr = { 11, 9, 4, 7, 8, 3, 1, 2, 5, 6 };
+        heap.MakeHeap(arr, 3);
+
+        assertEquals(heap.GetMax(), 11);
+    }
+
+    @Test public void getMaxEmptyHeap(){
+        Heap heap = new Heap();
+        int[] arr = { 11,};
+        heap.MakeHeap(arr, 0);
+
+        heap.GetMax();
+        assertEquals(heap.GetMax(), -1);
+    }
+
+    @Test public void getMaxProperlyOrder(){
+        Heap heap = new Heap();
+        int[] arr = { 11, 9, 4, 7, 8, 3, 1, 2, 5, 6 };
+        heap.MakeHeap(arr, 3);
+
+        int[] result = { 9, 8, 4, 7, 6, 3, 1, 2, 5, -1, -1, -1, -1, -1, -1 };
+        assertEquals(heap.GetMax(), 11);
+        assertArrayEquals(heap.HeapArray, result);
     }
 
 }

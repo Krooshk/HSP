@@ -1,11 +1,11 @@
-import java.util.*;
+import java.util.Arrays;
 
-class Heap
+class HeapAdditional
 {
     public int [] HeapArray; // хранит неотрицательные числа-ключи
     private int index = 0;
 
-    public Heap() { HeapArray = null; }
+    public HeapAdditional() { HeapArray = null; }
 
     // Task 1 MakeHeap, Time - O(N logN), Space - O(1)
     public void MakeHeap(int[] a, int depth)
@@ -55,9 +55,16 @@ class Heap
     }
 
     // Task 2 (subTask) Add, Time - O(logN), Space - O(1)
+    // Измененно для 6 задачи
     public boolean Add(int key)
     {
-        if (HeapArray[HeapArray.length - 1] > 0) return false;
+        if (HeapArray[HeapArray.length - 1] > 0) {
+            int length = HeapArray.length;
+            int[] newArr = Arrays.copyOf(HeapArray, length * 2);
+            Arrays.fill(newArr, length, newArr.length, -1);
+            HeapArray = newArr;
+        }
+
         HeapArray[index] = key;
         traverseAncestor(index);
         index++;
@@ -94,6 +101,52 @@ class Heap
             HeapArray[indexAncestor] = HeapArray[index];
             HeapArray[index] = temp;
             traverseAncestor(indexAncestor);
+        }
+    }
+
+    // Task 4* getMax, Time - O(N), Space - O(1)
+    // В худших случая будет время O(N) - если граница задана слишком низко и диапазон очень мал
+    Integer getMax(int index, int min, int max) {
+        if (index >= HeapArray.length || HeapArray[index] == -1 || HeapArray[index] < min) {
+            return -1;
+        }
+
+        if (HeapArray[index] <= max) {
+            return HeapArray[index];
+        }
+
+        int left = getMax(2 * index + 1, min, max );
+        int right = getMax(2 * index + 2, min, max );
+
+        return Math.max(left, right);
+    }
+
+    // Task 5* getMax, Time - O(N), Space - O(1)
+    // В худших случая будет время O(N) - если граница задана слишком низко
+    int getLessThen(int index, int border) {
+        if (index >= HeapArray.length || HeapArray[index] == -1) {
+            return -1;
+        }
+
+        if (HeapArray[index] < border) {
+            return HeapArray[index];
+        }
+
+        int left = getLessThen(2 * index + 1, border );
+        int right = getLessThen(2 * index + 2, border );
+
+        return Math.max(left, right);
+    }
+
+    // Task 6* getMax, Time - O(N*logN), Space - O(1)
+    // logN - доабвление, N - кол-во элементов в другой куче
+    // Метод add здесь изменен, чтобы динамически увеличиваться при заполнении массива
+    void addNewHeap(HeapAdditional addHeap) {
+        int val = addHeap.GetMax();
+
+        while (val > 0) {
+            Add(val);
+            val = addHeap.GetMax();
         }
     }
 
