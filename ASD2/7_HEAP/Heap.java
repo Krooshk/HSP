@@ -2,12 +2,11 @@ import java.util.*;
 
 class Heap
 {
-    public int [] HeapArray; // хранит неотрицательные числа-ключи
-    private int index = 0;
+    public int [] HeapArray;
 
     public Heap() { HeapArray = null; }
 
-    // Task 1 MakeHeap, Time - O(N logN), Space - O(1)
+    // Task 1 MakeHeap, Time O(N logN), Space O(1)
     public void MakeHeap(int[] a, int depth)
     {
         int size = (int) Math.pow(2, depth + 1) - 1;
@@ -18,21 +17,26 @@ class Heap
         }
     }
 
-    // Task 2 (subTask) GetMax, Time - O(logN), Space - O(1)
+    // Task 2 (subTask) GetMax, Time O(logN), Space O(1)
     public int GetMax()
     {
         if (HeapArray[0] < 0) return -1;
         int root = HeapArray[0];
+        int index = find();
+
+        if (index == - 1) {
+            HeapArray[0] = -1;
+            return root;
+        }
 
         HeapArray[0] = HeapArray[index - 1];
         HeapArray[index - 1] = -1;
-        index--;
         traverseChilds(0);
 
         return root;
     }
 
-    void traverseChilds(int index) {
+    private void traverseChilds(int index) {
         if (index >= HeapArray.length) return;
         int leftIndex = 2 * index + 1;
         int rightIndex = 2 * index + 2;
@@ -54,23 +58,33 @@ class Heap
         traverseChilds(nextIndex);
     }
 
-    // Task 2 (subTask) Add, Time - O(logN), Space - O(1)
+    // Task 2 (subTask) Add, Time O(logN), Space O(1)
     public boolean Add(int key)
     {
-        if (HeapArray[HeapArray.length - 1] > 0) return false;
+        int index = find();
+        if (index < 0) return false;
         HeapArray[index] = key;
         traverseAncestor(index);
-        index++;
 
         return true;
     }
 
-    // Task 3 isProperHeap, Time - O(N), Space - O(1)
-    boolean isProperHeap() {
+    // Task 3 isProperHeap, Time O(N), Space O(1)
+    public boolean isProperHeap() {
         return traverseProper(0);
     }
 
-    boolean traverseProper(int index) {
+    private int find() {
+        for (int i = 0; i < HeapArray.length; i++) {
+            if (HeapArray[i] == -1) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public boolean traverseProper(int index) {
         if (index >= HeapArray.length) {
             return true;
         }
@@ -86,7 +100,7 @@ class Heap
         return currLeft && currRight && deepCheckLeft && deepCheckRight;
     }
 
-    void traverseAncestor(int index) {
+    private void traverseAncestor(int index) {
         if (index == 0) return;
         int indexAncestor = (index - 1) / 2;
         if (HeapArray[indexAncestor] < HeapArray[index]) {
@@ -98,3 +112,5 @@ class Heap
     }
 
 }
+
+
