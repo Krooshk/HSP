@@ -24,9 +24,8 @@ class Heap
         int root = HeapArray[0];
         int index = find();
 
-        if (index == - 1) {
-            HeapArray[0] = -1;
-            return root;
+        if (index == -1) {
+            index = HeapArray.length;
         }
 
         HeapArray[0] = HeapArray[index - 1];

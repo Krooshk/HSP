@@ -3,7 +3,6 @@ import java.util.Arrays;
 class HeapAdditional
 {
     public int [] HeapArray; // хранит неотрицательные числа-ключи
-    private int index = 0;
 
     public HeapAdditional() { HeapArray = null; }
 
@@ -23,10 +22,14 @@ class HeapAdditional
     {
         if (HeapArray[0] < 0) return -1;
         int root = HeapArray[0];
+        int index = find();
+
+        if (index == -1) {
+            index = HeapArray.length;
+        }
 
         HeapArray[0] = HeapArray[index - 1];
         HeapArray[index - 1] = -1;
-        index--;
         traverseChilds(0);
 
         return root;
@@ -65,9 +68,9 @@ class HeapAdditional
             HeapArray = newArr;
         }
 
+        int index = find();
         HeapArray[index] = key;
         traverseAncestor(index);
-        index++;
 
         return true;
     }
@@ -75,6 +78,16 @@ class HeapAdditional
     // Task 3 isProperHeap, Time - O(N), Space - O(1)
     boolean isProperHeap() {
         return traverseProper(0);
+    }
+
+    private int find() {
+        for (int i = 0; i < HeapArray.length; i++) {
+            if (HeapArray[i] == -1) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     boolean traverseProper(int index) {
@@ -151,5 +164,3 @@ class HeapAdditional
     }
 
 }
-
-

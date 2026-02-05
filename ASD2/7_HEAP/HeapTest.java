@@ -83,6 +83,16 @@ public class HeapTest {
         assertEquals(heap.GetMax(), -1);
     }
 
+    @Test public void getMaxCheckArray(){
+        Heap heap = new Heap();
+        int[] arr = { 11,};
+        heap.MakeHeap(arr, 0);
+
+        heap.GetMax();
+        int[] result = { -1 };
+        assertArrayEquals(heap.HeapArray, result);
+    }
+
     @Test public void getMaxProperlyOrder(){
         Heap heap = new Heap();
         int[] arr = { 11, 9, 4, 7, 8, 3, 1, 2, 5, 6 };
@@ -90,6 +100,18 @@ public class HeapTest {
 
         int[] result = { 9, 8, 4, 7, 6, 3, 1, 2, 5, -1, -1, -1, -1, -1, -1 };
         assertEquals(heap.GetMax(), 11);
+        assertArrayEquals(heap.HeapArray, result);
+    }
+
+    @Test public void testGetMaxRegres(){
+        Heap heap = new Heap();
+        int[] arr = {  };
+        heap.MakeHeap(arr, 3);
+        int[] array = { 110, 90, 40, 70, 80, 31, 11, 20, 50, 60, 65, 30, 29, 10, 9 };
+        heap.HeapArray = array;
+        heap.GetMax();
+
+        int[] result = { 90, 80, 40, 70, 65, 31, 11, 20, 50, 60, 9, 30, 29, 10, -1 };
         assertArrayEquals(heap.HeapArray, result);
     }
 
