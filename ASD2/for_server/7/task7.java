@@ -11,7 +11,6 @@ class Heap
     {
         int size = (int) Math.pow(2, depth + 1) - 1;
         HeapArray = new int[size];
-        Arrays.fill(HeapArray, -1);
         for (int elem : a) {
             Add(elem);
         }
@@ -20,7 +19,7 @@ class Heap
     // Task 2 (subTask) GetMax, Time O(logN), Space O(1)
     public int GetMax()
     {
-        if (HeapArray[0] < 0) return -1;
+        if (HeapArray.length == 0 || HeapArray[0] < 0) return -1;
         int root = HeapArray[0];
         int index = find();
 
@@ -29,8 +28,9 @@ class Heap
         }
 
         HeapArray[0] = HeapArray[index - 1];
-        HeapArray[index - 1] = -1;
+        HeapArray[index - 1] = 0;
         traverseChilds(0);
+        HeapArray = Arrays.copyOf(HeapArray, HeapArray.length - 1);
 
         return root;
     }
@@ -75,7 +75,7 @@ class Heap
 
     private int find() {
         for (int i = 0; i < HeapArray.length; i++) {
-            if (HeapArray[i] == -1) {
+            if (HeapArray[i] == 0) {
                 return i;
             }
         }

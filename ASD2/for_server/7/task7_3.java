@@ -11,7 +11,7 @@ public class HeapTest {
         int[] arr = { };
         heap.MakeHeap(arr, 0);
 
-        int[] result = { -1 };
+        int[] result = { 0 };
         assertArrayEquals(heap.HeapArray, result);
     }
 
@@ -89,7 +89,7 @@ public class HeapTest {
         heap.MakeHeap(arr, 0);
 
         heap.GetMax();
-        int[] result = { -1 };
+        int[] result = { };
         assertArrayEquals(heap.HeapArray, result);
     }
 
@@ -98,7 +98,7 @@ public class HeapTest {
         int[] arr = { 11, 9, 4, 7, 8, 3, 1, 2, 5, 6 };
         heap.MakeHeap(arr, 3);
 
-        int[] result = { 9, 8, 4, 7, 6, 3, 1, 2, 5, -1, -1, -1, -1, -1, -1 };
+        int[] result = { 9, 8, 4, 7, 6, 3, 1, 2, 5, 0, 0, 0, 0, 0 };
         assertEquals(heap.GetMax(), 11);
         assertArrayEquals(heap.HeapArray, result);
     }
@@ -111,7 +111,16 @@ public class HeapTest {
         heap.HeapArray = array;
         heap.GetMax();
 
-        int[] result = { 90, 80, 40, 70, 65, 31, 11, 20, 50, 60, 9, 30, 29, 10, -1 };
+        int[] result = { 90, 80, 40, 70, 65, 31, 11, 20, 50, 60, 9, 30, 29, 10 };
+        assertArrayEquals(heap.HeapArray, result);
+    }
+
+    @Test public void arrayFillsZeroForInt(){
+        Heap heap = new Heap();
+        int[] arr = {  };
+        heap.MakeHeap(arr, 1);
+
+        int[] result = { 0, 0, 0 };
         assertArrayEquals(heap.HeapArray, result);
     }
 
