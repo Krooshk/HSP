@@ -19,7 +19,7 @@ class Heap
     // Task 2 (subTask) GetMax, Time O(logN), Space O(1)
     public int GetMax()
     {
-        if (HeapArray.length == 0 || HeapArray[0] < 0) return -1;
+        if (HeapArray.length == 0 || HeapArray[0] == 0) return -1;
         int root = HeapArray[0];
         int index = find();
 
@@ -30,7 +30,6 @@ class Heap
         HeapArray[0] = HeapArray[index - 1];
         HeapArray[index - 1] = 0;
         traverseChilds(0);
-        HeapArray = Arrays.copyOf(HeapArray, HeapArray.length - 1);
 
         return root;
     }
