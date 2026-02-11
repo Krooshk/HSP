@@ -1,25 +1,9 @@
 import java.util.*;
 
-public class SimpleTreeNode<T>
-{
-    public T NodeValue;
-    public SimpleTreeNode<T> Parent;
-    public List<SimpleTreeNode<T>> Children;
-    public int level;
-
-    public SimpleTreeNode(T val, SimpleTreeNode<T> parent)
-    {
-        NodeValue = val;
-        Parent = parent;
-        Children = null;
-    }
-}
-
-class SimpleTree<T>
-{
+public class AdditionalTreeNode<T> {
     public SimpleTreeNode<T> Root;
 
-    public SimpleTree(SimpleTreeNode<T> root)
+    public AdditionalTreeNode(SimpleTreeNode<T> root)
     {
         Root = root;
     }
@@ -206,7 +190,65 @@ class SimpleTree<T>
         return list;
     }
 
+    // Task 2* balanceTree, Time - O(N Log N), Space - O(N)
+    public void balanceTree(){
+        List<SimpleTreeNode<T>> list = GetAllNodes();
+        Integer[] sortValues = list.stream().map(el -> el.NodeValue).toArray(Integer[]::new);
+        Arrays.sort(sortValues);
+
+        helperGenerate(null, sortValues);
+    }
+
+    public boolean checkChildren(SimpleTreeNode<T> node, int max){
+        if (node == null) return true;
+        if (node.Children.size() > max) return false;
+        ArrayList<Boolean> list = new ArrayList<>();
+
+        for (SimpleTreeNode el: node.Children) {
+            list.add(checkChildren(el, max));
+        }
+
+        return list.stream().allMatch(el -> el);
+    }
+
+    SimpleTreeNode helperGenerate(SimpleTreeNode parent, Integer[] arr) {
+        if (arr.length == 0) return null;
+
+        int index = arr.length / 2;
+        Integer[] left = Arrays.copyOfRange(arr, 0, index);
+        Integer[] right = Arrays.copyOfRange(arr, index + 1, arr.length);
+        SimpleTreeNode node = new SimpleTreeNode(arr[index], parent);
+        if (parent == null) Root = node;
+
+        SimpleTreeNode leftNode = helperGenerate(node, left);
+        SimpleTreeNode rightNode = helperGenerate(node, right);
+        node.Children = new ArrayList<>();
+        if (leftNode != null) node.Children.add(leftNode);
+        if (rightNode != null) node.Children.add(rightNode);
+
+        return node;
+    }
 
 
+    // Task 3* getCountEvenTreeForNode , Time - o (N^2), Space - O(N)
+    public int getCountEvenTreeForNode(SimpleTreeNode<T> node) {
+        if (Root == null || CountNodes(node) % 2 != 0 ) {
+            return 0;
+        }
 
+        ArrayList list = helperEvenTree(node);
+
+        return list.size() / 2 + 1;
+    }
 }
+
+// Рекомендации по решению задач задания 7.
+// 4. Поиск максимального элемента в заданном диапазоне значений
+// Проходился по массиву, как по дереву, вычисляя нужные индексы. В худшем случае перебираем все варианты,
+// поэтому мог просто линейно идти по массиву.
+// 5. Предикативный поиск.
+// Так как куча была с максимальным элементом, то решения для поиска элемента меньше, чем заданый, в худшем случае требовала прохода по всей куче.
+// Поэтому предварительно выйти не мог, так как дочерные элементы точно меньше родительского, но если бы куча была бы с минимальным элементом наверху, то мог бы раньше прервать поиск.
+// 6. Объединение текущей кучи с кучей-параметром.
+// Мутировал кучу-параметр, не создал для нее копию.
+

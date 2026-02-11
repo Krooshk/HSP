@@ -5,7 +5,7 @@ import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SimpleTreeTest {
-    @Test public void testCount(){
+    @Test public void testRegres(){
         SimpleTreeNode root = new SimpleTreeNode(1, null);
         SimpleTreeNode two = new SimpleTreeNode(2, root);
         SimpleTreeNode three = new SimpleTreeNode(3, root);
@@ -40,11 +40,10 @@ class SimpleTreeTest {
         assertEquals(st.CountNodes(six), 4);
 
         Integer[] result = new Integer[]{ 1, 3, 1, 6 };
-        System.out.println(Arrays.toString(st.EvenTrees().toArray()));
         assertArrayEquals(st.EvenTrees().toArray(), result);
     }
 
-    @Test public void testCount2(){
+    @Test public void testRegres2(){
         SimpleTreeNode root = new SimpleTreeNode(1, null);
         SimpleTreeNode two = new SimpleTreeNode(2, root);
         SimpleTreeNode three = new SimpleTreeNode(3, root);
@@ -77,7 +76,36 @@ class SimpleTreeTest {
         SimpleTree st = new SimpleTree<Integer>(root);
 
         Integer[] result = new Integer[]{ 1, 3, 3, 6, 2, 4 };
-        System.out.println(Arrays.toString(st.EvenTrees().toArray()));
+        assertArrayEquals(st.EvenTrees().toArray(), result);
+    }
+
+    @Test public void testEmptyEdge(){
+        SimpleTreeNode root = new SimpleTreeNode(1, null);
+        SimpleTreeNode two = new SimpleTreeNode(2, root);
+        SimpleTreeNode three = new SimpleTreeNode(3, root);
+
+        root.Children = new ArrayList();
+        root.Children.add(three);
+        root.Children.add(two);
+
+        SimpleTree st = new SimpleTree<Integer>(root);
+
+        Integer[] result = new Integer[]{ };
+        assertArrayEquals(st.EvenTrees().toArray(), result);
+    }
+
+    @Test public void testEmptyTree(){
+        SimpleTree st = new SimpleTree<Integer>(null);
+
+        Integer[] result = new Integer[]{ };
+        assertArrayEquals(st.EvenTrees().toArray(), result);
+    }
+
+    @Test public void testTreeOneNode(){
+        SimpleTreeNode root = new SimpleTreeNode(1, null);
+        SimpleTree st = new SimpleTree<Integer>(root);
+
+        Integer[] result = new Integer[]{ };
         assertArrayEquals(st.EvenTrees().toArray(), result);
     }
 
