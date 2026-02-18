@@ -8,7 +8,7 @@
       <sourceFolder url="file://$MODULE_DIR$/6_GENERATE_BST_II" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/7_HEAP" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/9_EVEN_TREE" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/10_PATH_IN_GRAPH" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/11_BFS_GRAPH" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
