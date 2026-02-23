@@ -1,23 +1,11 @@
 import java.util.*;
 
-class Vertex
-{
-    public int Value;
-    public boolean Hit;
-    public Vertex(int val)
-    {
-        Value = val;
-        Hit = false;
-    }
-}
-
-class SimpleGraph
-{
+public class AdditionalGrpah {
     Vertex [] vertex;
     int [][] m_adjacency;
     int max_vertex;
 
-    public SimpleGraph(int size)
+    public AdditionalGrpah(int size)
     {
         max_vertex = size;
         m_adjacency = new int [size][size];
@@ -99,7 +87,6 @@ class SimpleGraph
         return helperDFS(indx, end, stack);
     }
 
-    // Task 1 BreadthFirstSearch Time - O(N), Space - O(N)
     public ArrayList<Vertex> BreadthFirstSearch(int VFrom, int VTo)
     {
         for (int i = 0; i < vertex.length; i++){
@@ -195,6 +182,61 @@ class SimpleGraph
         return set;
     }
 
+    // Task 1* getAmountTriangle, Time - O(N^3), Space - O(N)
+    int getAmountTriangle(){
+        HashSet<Integer> triangles = new HashSet<>();
+        HashMap<String, Integer> res = new HashMap<>();
+        res.put("res", 0);
+        for (int i = 0; i < vertex.length; i++) {
+            if (triangles.contains(i)) continue;
+            isInsideTriangle(i, triangles, res);
+        }
+
+        return res.get("res");
+    }
+
+    void isInsideTriangle(int i, HashSet<Integer> triangles, HashMap<String, Integer> res){
+        HashSet<Integer> neighbors = getNeighbors(i);
+
+        for (Integer pretendent: neighbors) {
+            int[] currentRow = m_adjacency[pretendent];
+            for (int k = 0; k < currentRow.length; k++){
+                boolean isSameNode = k == pretendent;
+                boolean isSourceNode = k == i;
+                if (!isSourceNode && !isSameNode && currentRow[k] == 1 && neighbors.contains(k)){
+                    if (triangles.contains(i) && triangles.contains(pretendent) && triangles.contains(k)) {
+                        continue;
+                    }
+                    triangles.add(i);
+                    triangles.add(pretendent);
+                    triangles.add(k);
+
+                    int prev = res.get("res");
+                    res.put("res", prev + 1);
+                }
+            }
+        }
+    }
+
+    // Task 2* getWeak2, Time - O(N^3), Space - O(N)
+    public ArrayList<Vertex>  getWeak2() {
+        ArrayList<Vertex> weakVert = new ArrayList<>();
+        HashSet<Integer> triangles = new HashSet<>();
+        HashMap<String, Integer> res = new HashMap<>();
+        res.put("res", 0);
+        for (int i = 0; i < vertex.length; i++) {
+            if (triangles.contains(i)) continue;
+            isInsideTriangle(i, triangles, res);
+        }
+
+        for (int i = 0; i < vertex.length; i++) {
+            if (!triangles.contains(i)){
+                weakVert.add(vertex[i]);
+            }
+        }
+
+        return weakVert;
+    }
 }
 
 // Рекомендации по решению задач задания 10.
@@ -204,3 +246,5 @@ class SimpleGraph
 // _ Совершил ошибку, что искал самый длинный путь только от одной вершины, изначальной. Также в "хранилище" не учел случай, больше двух смежных вершин.
 // Подход в общем похожий, я рекурсивно углублялся дальше в смежные узлы и в качестве параметров прокидывал пройденный путь. Каждый раз копировал путь, чтобы не мутировать
 // переданный список.
+
+
