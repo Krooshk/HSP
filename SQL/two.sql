@@ -1,4 +1,4 @@
--- Занятие 2
+-- Занятие 2.5
 -- EmployeeTerritories - один-к-одному (запись определенной территории только одна).
 -- Territories - многие-ко-многим(territoryId из другой таблицы и связь с Region).
 -- Products - один-ко-многим (связь с Suppliers, Categories).
