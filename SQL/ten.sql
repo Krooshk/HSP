@@ -11,13 +11,17 @@ AND
 
 -- 10.4.2. 
 --   Имеется запрос
+---- Значение NULL встречается только в одном поле набора. Появляется, потому что для Customers не нашлось нужного совпадения(нет в заказах нужной компании).
 
 -- 10.4.3. 
 --   Подумайте, как с помощью предложения WHERE превратить запрос CROSS JOIN в INNER JOIN. 
+---- Использовать предложение WHERE в условии ON
 
 -- 10.4.4. 
 --   Перепишите данный запрос в INNER JOIN:
-
+SELECT Products.ProductName, [Order Details].UnitPrice
+FROM Products INNER JOIN [Order Details]
+ON Products.ProductID = [Order Details].ProductID
 
 -- Рефлексия по заданию 9.
 -- Сделал аналогичным образом.
