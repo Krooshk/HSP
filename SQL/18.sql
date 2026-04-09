@@ -15,7 +15,12 @@ WHERE priority = (SELECT Max(priority) FROM Tasks)
 AND status = 'pending'
 
 -- 4. Для каждого гнома, который владеет хотя бы одним предметом, получить количество предметов, которыми он владеет.
-
+  
+-- Предварительный расчет, сколько предметов общих. Нужно потом приплюсовать к значению total
+SELECT Count() FROM Items
+GROUP BY owner_id
+HAVING owner_id IS NULL
+  
 SELECT * FROM Dwarves, 
 WHERE dwarf_id = ANY 
 (SELECT owner_id FROM Items) 
@@ -27,14 +32,21 @@ JOIN
 GROUP BY owner_id) as countItems
 ON countItems.owner_id = dwarf_id;
 
-SELECT Count() FROM Items
-GROUP BY owner_id
-HAVING owner_id IS NULL
-
-
 -- 5. Получить список всех отрядов и количество гномов в каждом отряде. Также включите в выдачу отряды без гномов.
 
+SELECT * FROM Squads
+LEFT JOIN (
+  SELECT squad_id, Count() as count From Dwarves
+  GROUP BY squad_id
+) as TotalDwarves ON Squads.squad_id = TotalDwarves.squad_id 
+
 -- 6. Получить список профессий с наибольшим количеством незавершённых задач ("pending" и "in_progress") у гномов этих профессий.
+  
+SELECT profession FROM Dwarves 
+LEFT JOIN Tasks on Tasks.assigned_to = Dwarves.dwarf_id
+WHERE status IN ('pending', 'in_progress')
+GROUP BY profession
+HAVING MAX(Tasks.status)
 
 -- 7. Для каждого типа предметов узнать средний возраст гномов, владеющих этими предметами.
 
