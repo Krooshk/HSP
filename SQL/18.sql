@@ -1,4 +1,5 @@
 -- 1. Получить информацию о всех гномах, которые входят в какой-либо отряд, вместе с информацией об их отрядах.
+
 SELECT Dwarves.dwarf_id, Dwarves.name , Dwarves.age, Dwarves.profession, Squads.name , Squads.mission 
 FROM Dwarves, Squads
 WHERE Dwarves.squad_id IS NOT NULL AND Dwarves.squad_id = Squads.squad_id;   
@@ -50,5 +51,13 @@ HAVING MAX(Tasks.status)
 
 -- 7. Для каждого типа предметов узнать средний возраст гномов, владеющих этими предметами.
 
--- 8. Найти всех гномов старше среднего возраста (по всем гномам в базе), которые не владеют никакими предметами.
+SELECT  Items.type, AVG(Dwarves.age) FROM Items 
+LEFT JOIN Dwarves on Dwarves.dwarf_id = Items.owner_id
+GROUP BY Items.type
 
+-- 8. Найти всех гномов старше среднего возраста (по всем гномам в базе), которые не владеют никакими предметами.
+  
+SELECT * FROM Dwarves
+WHERE age > (SELECT AVG(age) FROM Dwarves)
+WHERE dwarf_id <> ALL 
+(SELECT owner_id  FROM Items);
