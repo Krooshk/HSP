@@ -31,5 +31,35 @@ FROM
     DWARVES d;
 
 -- Задача 3: Данные о мастерской с назначенными рабочими и проектами
+   
+SELECT 
+    w.workshop_id,
+    w.name,
+    w.type,
+    w.quality,
+    JSON_OBJECT(
+        'craftsdwarf_ids', (
+            SELECT JSON_ARRAYAGG(w_c.dwarf_id)
+            FROM WORKSHOP_CRAFTSDWARVES w_c
+            WHERE w.workshop_id = w_c.workshop_id
+        ),
+        'project_ids', (
+            SELECT JSON_ARRAYAGG(p.project_id)
+            FROM PROJECTS p
+            WHERE w.workshop_id = p.workshop_id
+        ),
+        'input_material_ids', (
+            SELECT JSON_ARRAYAGG(w_m.material_id )
+            FROM WORKSHOP_MATERIALS w_m
+            WHERE w.workshop_id = w_m.workshop_id
+        ),
+        'output_product_ids', (
+            SELECT JSON_ARRAYAGG(w_p.product_id)
+            FROM WORKSHOP_PRODUCTS w_p
+            WHERE w.workshop_id = w_p.workshop_id
+        )
+    ) AS related_entities
+FROM 
+    WORKSHOPS w;
 
 -- Задача 4: Данные о военном отряде с составом и операциями
