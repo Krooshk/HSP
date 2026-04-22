@@ -63,3 +63,38 @@ FROM
     WORKSHOPS w;
 
 -- Задача 4: Данные о военном отряде с составом и операциями
+
+SELECT 
+    m_s.squad_id,
+    m_s.name,
+    m_s.formation_type,
+    m_s.leader_id,
+    JSON_OBJECT(
+        'member_ids', (
+            SELECT JSON_ARRAYAGG(s_m.dwarf_id)
+            FROM SQUAD_MEMBERS s_m
+            WHERE m_s.squad_id = s_m.squad_id
+        ),
+        'equipment_ids', (
+            SELECT JSON_ARRAYAGG(s_e.equipment_id)
+            FROM SQUAD_EQUIPMENT s_e
+            WHERE m_s.squad_id = s_e.squad_id
+        ),
+        'operation_ids', (
+            SELECT JSON_ARRAYAGG(s_o.operation_id)
+            FROM SQUAD_OPERATIONS s_o
+            WHERE m_s.squad_id = s_o.squad_id
+        ),
+        'training_schedule_ids', (
+            SELECT JSON_ARRAYAGG(s_t.schedule_id)
+            FROM SQUAD_TRAINING s_t
+            WHERE m_s.squad_id = s_t.squad_id
+        ),
+        'battle_report_ids', (
+            SELECT JSON_ARRAYAGG(s_b.report_id)
+            FROM SQUAD_BATTLES s_b
+            WHERE m_s.squad_id = s_b.squad_id
+        )
+    ) AS related_entities
+FROM 
+    MILITARY_SQUADS m_s;
