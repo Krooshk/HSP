@@ -3,11 +3,11 @@
 SELECT 
   (SELECT COUNT(DISTINCT c.civilization_type)
   FROM CARAVANS c
-  ) as total_trading_partners,
+  ) AS total_trading_partners,
   (
   SELECT COALESCE(SUM(tt.value), 0)
   FROM TRADE_TRANSACTIONS tt
-  ) as all_time_trade_value,
+  ) AS all_time_trade_value,
   
   JSON_OBJECT(
         'civilization_trade_data', (
@@ -26,38 +26,6 @@ SELECT
                             WHERE c2.civilization_type = c.civilization_type
                         )
                     ),
-
-                    'trade_balance', (
-                        SELECT COALESCE(SUM(
-                            CASE tt.balance_direction
-                                WHEN 'Fortress' THEN tt.value
-                                WHEN 'Caravan'  THEN -tt.value
-                                ELSE 0
-                            END
-                        ), 0)
-                        FROM TRADE_TRANSACTIONS tt
-                        WHERE tt.caravan_id IN (
-                            SELECT c2.caravan_id FROM CARAVANS c2
-                            WHERE c2.civilization_type = c.civilization_type
-                        )
-                    ),
-
-                    'trade_relationship', CASE
-                        WHEN (
-                            SELECT COALESCE(SUM(
-                                CASE tt.balance_direction
-                                    WHEN 'Fortress' THEN tt.value
-                                    WHEN 'Caravan'  THEN -tt.value
-                                    ELSE 0
-                                END), 0)
-                            FROM TRADE_TRANSACTIONS tt
-                            WHERE tt.caravan_id IN (
-                                SELECT c2.caravan_id FROM CARAVANS c2
-                                WHERE c2.civilization_type = c.civilization_type
-                            )
-                        ) > 0 THEN 'Favorable'
-                        ELSE 'Unfavorable'
-                    END,
 
                     'caravan_ids', (
                         SELECT JSON_ARRAYAGG(c3.caravan_id)
